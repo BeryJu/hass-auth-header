@@ -3,29 +3,42 @@ from ipaddress import ip_address
 from typing import OrderedDict
 
 import voluptuous as vol
+
+import homeassistant.helpers.config_validation as cv
 from homeassistant import data_entry_flow
-from homeassistant.auth import providers
-from homeassistant.components.auth import _create_auth_code_store, indieauth
-from homeassistant.components.auth.login_flow import (LoginFlowIndexView,
-                                                      LoginFlowResourceView,
-                                                      _prepare_result_json)
-from homeassistant.components.http.ban import (log_invalid_auth,
-                                               process_success_login)
+from homeassistant.components.auth import DOMAIN as AUTH_DOMAIN
+from homeassistant.components.auth import indieauth
+from homeassistant.components.auth.login_flow import (
+    LoginFlowIndexView,
+    _prepare_result_json,
+)
+from homeassistant.components.http.ban import log_invalid_auth, process_success_login
 from homeassistant.components.http.data_validator import RequestDataValidator
-from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import HTTP_BAD_REQUEST, HTTP_NOT_FOUND
 from homeassistant.core import HomeAssistant
 
 from . import headers
 
+DOMAIN = "auth_header"
 _LOGGER = logging.getLogger(__name__)
-CONFIG_SCHEMA = vol.Schema({"auth_header": vol.Schema({})}, extra=vol.ALLOW_EXTRA)
+CONFIG_SCHEMA = vol.Schema(
+    {
+        DOMAIN: vol.Schema(
+            {
+                vol.Optional(
+                    "username_header", default="X-Forwarded-Preferred-Username"
+                ): cv.string,
+            }
+        )
+    },
+    extra=vol.ALLOW_EXTRA,
+)
 
 
 async def async_setup(hass: HomeAssistant, config):
     """Register custom view which includes request in context"""
     # Because we start after auth, we have access to store_result
-    store_result = hass.data["auth"]
+    store_result = hass.data[AUTH_DOMAIN]
     # Remove old LoginFlowResourceView
     for route in hass.http.app.router._resources:
         if route.canonical == "/auth/login_flow":
@@ -35,20 +48,13 @@ async def async_setup(hass: HomeAssistant, config):
     hass.http.register_view(
         RequestLoginFlowResourceView(hass.auth.login_flow, store_result)
     )
-    return True
 
-
-async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
-    """Inject Auth-Header provider."""
+    # Inject Auth-Header provider.
     hass.auth._providers = OrderedDict()
     provider = headers.HeaderAuthProvider(
         hass,
         hass.auth._store,
-        {
-            "username_header": entry.data.get(
-                "username_header", "X-Forwarded-Preferred-Username"
-            )
-        },
+        config[DOMAIN],
     )
     hass.auth._providers[(provider.type, provider.id)] = provider
     _LOGGER.debug("Injected auth_header provider")

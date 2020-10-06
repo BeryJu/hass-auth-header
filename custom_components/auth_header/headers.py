@@ -2,24 +2,28 @@
 
 Allow access to users based on a header set by a reverse-proxy.
 """
+import logging
 from typing import Any, Dict, List, Optional, cast
 
 import voluptuous as vol
 from aiohttp.web_request import Request
+
 from homeassistant.auth.models import Credentials, User, UserMeta
-from homeassistant.auth.providers import (AUTH_PROVIDER_SCHEMA, AUTH_PROVIDERS,
-                                          AuthProvider, LoginFlow)
-from homeassistant.auth.providers.trusted_networks import (InvalidAuthError,
-                                                           InvalidUserError,
-                                                           IPAddress)
+from homeassistant.auth.providers import (
+    AUTH_PROVIDER_SCHEMA,
+    AUTH_PROVIDERS,
+    AuthProvider,
+    LoginFlow,
+)
+from homeassistant.auth.providers.trusted_networks import (
+    InvalidAuthError,
+    InvalidUserError,
+    IPAddress,
+)
 from homeassistant.core import callback
 
 CONF_USERNAME_HEADER = "username_header"
-
-CONFIG_SCHEMA = AUTH_PROVIDER_SCHEMA.extend(
-    {vol.Required(CONF_USERNAME_HEADER, default="X-Forwarded-Preferred-Username"): str},
-    extra=vol.PREVENT_EXTRA,
-)
+_LOGGER = logging.getLogger(__name__)
 
 
 @AUTH_PROVIDERS.register("header")
@@ -43,10 +47,17 @@ class HeaderAuthProvider(AuthProvider):
     async def async_login_flow(self, context: Optional[Dict]) -> LoginFlow:
         """Return a flow to login."""
         assert context is not None
+        header_name = self.config[CONF_USERNAME_HEADER]
         request = cast(Request, context.get("request"))
-        print(request.headers)
-        assert self.config[CONF_USERNAME_HEADER] in request.headers
-        remote_user = request.headers[self.config[CONF_USERNAME_HEADER]]
+        if header_name not in request.headers:
+            _LOGGER.info("No header set, returning empty flow")
+            return HeaderLoginFlow(
+                self,
+                None,
+                [],
+                cast(IPAddress, context.get("ip_address")),
+            )
+        remote_user = request.headers[header_name]
         # Translate username to id
         users = await self.store.async_get_users()
         available_users = [
@@ -95,7 +106,7 @@ class HeaderAuthProvider(AuthProvider):
         Raise InvalidAuthError if trusted_proxies is not configured.
         """
         if not self.hass.http.trusted_proxies:
-            print("trusted_proxies is not configured")
+            _LOGGER.warning("trusted_proxies is not configured")
             raise InvalidAuthError("trusted_proxies is not configured")
 
         if not any(
@@ -131,12 +142,12 @@ class HeaderLoginFlow(LoginFlow):
             )
 
         except InvalidAuthError:
-            print("invalid auth")
+            _LOGGER.debug("invalid auth")
             return self.async_abort(reason="not_allowed")
 
         for user in self._available_users:
             if user.name == self._remote_user:
                 return await self.async_finish({"user": user.id})
 
-        print("no user")
+        _LOGGER.debug("no user")
         return self.async_abort(reason="not_allowed")

@@ -2,11 +2,19 @@
 
 This custom component allows you to delegate authentication to a reverse proxy.
 
-**Use with caution. If misconfigured, this can lead to Homeassistant that anyone can access***
+**Use with caution. If misconfigured, this can lead to Homeassistant that anyone can access**
 
 ## Installation
 
-Add this repository to [HACS](https://hacs.xyz/) and install over in the Integrations tab. Go to the Integrations Page and enable it. The prompt is the name of the Header to be checked.
+Add this repository to [HACS](https://hacs.xyz/) and install over in the Integrations tab.
+
+Update your configuration.yaml file with
+
+```yaml
+auth_header:
+    # Optionally set this if you're not using passbook proxy or oauth2_proxy
+    # username_header: X-Forwarded-Preferred-Username
+```
 
 ## How it works
 
@@ -17,3 +25,8 @@ On boot, two main things are done:
     Normally the Request is not included, as none of the providers require it.
 
 2. If the integration has been enabled, the default Authentication Provider is replaced by an instance of the Header Authentication Provider. It is replaced because if you have multiple authentication providers, you still get a prompt.
+
+
+## Help! Everything is broken!
+
+If anything goes wrong or Homeassistant fails to load the component correctly, simply remove the `auth_header` block from your configuration file and restart HASS.

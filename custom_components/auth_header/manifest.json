@@ -1,7 +1,6 @@
 {
   "domain": "auth_header",
   "name": "auth_header",
-  "config_flow": true,
   "documentation": "https://github.com/BeryJu/hass-auth-header",
   "requirements": [],
   "ssdp": [],
