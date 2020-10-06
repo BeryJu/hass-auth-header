@@ -6,7 +6,7 @@ This custom component allows you to delegate authentication to a reverse proxy.
 
 ## Installation
 
-Add this repository to [HACS](https://hacs.xyz/) and install over in the Integrations tab.
+Add this repository to [HACS](https://hacs.xyz/).
 
 Update your configuration.yaml file with
 
@@ -15,6 +15,8 @@ auth_header:
     # Optionally set this if you're not using passbook proxy or oauth2_proxy
     # username_header: X-Forwarded-Preferred-Username
 ```
+
+Afterwards, restart Homeassistant.
 
 ## How it works
 
