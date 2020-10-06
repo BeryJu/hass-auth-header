@@ -2,10 +2,10 @@ import logging
 from ipaddress import ip_address
 from typing import OrderedDict
 
-import voluptuous as vol
-
 import homeassistant.helpers.config_validation as cv
+import voluptuous as vol
 from homeassistant import data_entry_flow
+from homeassistant.auth import providers
 from homeassistant.components.auth import DOMAIN as AUTH_DOMAIN
 from homeassistant.components.auth import indieauth
 from homeassistant.components.auth.login_flow import (
@@ -50,13 +50,15 @@ async def async_setup(hass: HomeAssistant, config):
     )
 
     # Inject Auth-Header provider.
-    hass.auth._providers = OrderedDict()
+    providers = OrderedDict()
     provider = headers.HeaderAuthProvider(
         hass,
         hass.auth._store,
         config[DOMAIN],
     )
-    hass.auth._providers[(provider.type, provider.id)] = provider
+    providers[(provider.type, provider.id)] = provider
+    providers.update(hass.auth._providers)
+    hass.auth._providers = providers
     _LOGGER.debug("Injected auth_header provider")
     return True
 

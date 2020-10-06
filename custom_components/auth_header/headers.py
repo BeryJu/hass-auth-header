@@ -7,7 +7,6 @@ from typing import Any, Dict, List, Optional, cast
 
 import voluptuous as vol
 from aiohttp.web_request import Request
-
 from homeassistant.auth.models import Credentials, User, UserMeta
 from homeassistant.auth.providers import (
     AUTH_PROVIDER_SCHEMA,
