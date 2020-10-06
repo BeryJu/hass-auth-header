@@ -11,6 +11,10 @@ Add this repository to [HACS](https://hacs.xyz/).
 Update your configuration.yaml file with
 
 ```yaml
+http:
+    use_x_forwarded_for: true
+    trusted_proxies:
+        - 1.2.3.4/32 # This needs to be set to the IP of your reverse proxy
 auth_header:
     # Optionally set this if you're not using passbook proxy or oauth2_proxy
     # username_header: X-Forwarded-Preferred-Username
