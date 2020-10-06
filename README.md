@@ -2,7 +2,7 @@
 
 This custom component allows you to delegate authentication to a reverse proxy.
 
-**Use with caution. If misconfigured, this can lead to Homeassistant that anyone can access**
+**Use with caution. If misconfigured, this can lead to a Homeassistant instance that anyone can access**
 
 ## Installation
 
@@ -17,6 +17,8 @@ auth_header:
 ```
 
 Afterwards, restart Homeassistant.
+
+![](./.github/demo.gif)
 
 ## How it works
 
