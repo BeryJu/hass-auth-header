@@ -1,8 +1,8 @@
-# Header Auth for Homeassistant
+# Header Auth for Home Assistant
 
 This custom component allows you to delegate authentication to a reverse proxy.
 
-**Use with caution. If misconfigured, this can lead to a Homeassistant instance that anyone can access**
+**Use with caution. If misconfigured, this can lead to a Home Assistant instance that anyone can access**
 
 ## Installation
 
@@ -16,7 +16,7 @@ auth_header:
     # username_header: X-Forwarded-Preferred-Username
 ```
 
-Afterwards, restart Homeassistant.
+Afterwards, restart Home Assistant.
 
 ![](./.github/demo.gif)
 
@@ -35,4 +35,4 @@ On boot, two main things are done when the integration is enabled:
 
 ## Help! Everything is broken!
 
-If anything goes wrong or Homeassistant fails to load the component correctly, simply remove the `auth_header` block from your configuration file and restart HASS.
+If anything goes wrong or Home Assistant fails to load the component correctly, simply remove the `auth_header` block from your configuration file and restart HASS.
