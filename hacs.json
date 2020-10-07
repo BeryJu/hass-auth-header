@@ -1,0 +1,5 @@
+{
+    "name": "Header Authentication",
+    "render_readme": true,
+    "homeassistant": "0.115.0"
+}
