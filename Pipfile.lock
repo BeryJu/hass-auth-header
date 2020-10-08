@@ -173,11 +173,11 @@
         },
         "homeassistant": {
             "hashes": [
-                "sha256:8a650e7f5c89e9198c80f46bc0198db6a716dd786557e1a8c0890c3a91cbe578",
-                "sha256:ecbfd1d3194b9d2ce821ac1a5929a482f0dc62d723b46108a72a55fb22f05d42"
+                "sha256:4923bc3109e8dc94d9357a66a8e89f0a3ff4730c3d78c3bfd40e7a83352e346e",
+                "sha256:4c27273e635b79a10cf1d27f1ed49a5c980765c8e062339db89a2b2f805c17dd"
             ],
             "index": "pypi",
-            "version": "==0.115.6"
+            "version": "==0.116.0"
         },
         "idna": {
             "hashes": [
@@ -439,9 +439,10 @@
         },
         "voluptuous": {
             "hashes": [
-                "sha256:2abc341dbc740c5e2302c7f9b8e2e243194fb4772585b991931cb5b22e9bf456"
+                "sha256:0fff348a097c9a74f9f4a991d2cf01a6185780e997ad953bde49cb3efbb411be",
+                "sha256:3a4ef294e16f6950c79de4cba88f31092a107e6e3aaa29950b43e2bb9e1bb2dc"
             ],
-            "version": "==0.11.7"
+            "version": "==0.12.0"
         },
         "voluptuous-serialize": {
             "hashes": [
@@ -480,10 +481,10 @@
         },
         "zipp": {
             "hashes": [
-                "sha256:43f4fa8d8bb313e65d8323a3952ef8756bf40f9a5c3ea7334be23ee4ec8278b6",
-                "sha256:b52f22895f4cfce194bc8172f3819ee8de7540aa6d873535a8668b730b8b411f"
+                "sha256:64ad89efee774d1897a58607895d80789c59778ea02185dd846ac38394a8642b",
+                "sha256:eed8ec0b8d1416b2ca33516a37a08892442f3954dee131e92cfd92d8fe3e7066"
             ],
-            "version": "==3.2.0"
+            "version": "==3.3.0"
         }
     }
 }
