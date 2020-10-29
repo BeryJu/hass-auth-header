@@ -18,6 +18,8 @@ http:
 auth_header:
     # Optionally set this if you're not using passbook proxy or oauth2_proxy
     # username_header: X-Forwarded-Preferred-Username
+    # Optionally enable debug mode to see the headers Home-Assistant gets
+    # debug: false
 ```
 
 Afterwards, restart Home Assistant.

@@ -1,6 +1,7 @@
 import logging
 from ipaddress import ip_address
 from typing import OrderedDict
+from aiohttp.web_request import Request
 
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
@@ -28,6 +29,7 @@ CONFIG_SCHEMA = vol.Schema(
                 vol.Optional(
                     "username_header", default="X-Forwarded-Preferred-Username"
                 ): cv.string,
+                vol.Optional("debug", default=False): cv.boolean,
             }
         )
     },
@@ -46,7 +48,9 @@ async def async_setup(hass: HomeAssistant, config):
             hass.http.app.router._resources.remove(route)
     _LOGGER.debug("Add new login_flow route")
     hass.http.register_view(
-        RequestLoginFlowIndexView(hass.auth.login_flow, store_result)
+        RequestLoginFlowIndexView(
+            hass.auth.login_flow, store_result, config[DOMAIN]["debug"]
+        )
     )
 
     # Inject Auth-Header provider.
@@ -64,6 +68,13 @@ async def async_setup(hass: HomeAssistant, config):
 
 
 class RequestLoginFlowIndexView(LoginFlowIndexView):
+
+    debug: bool
+
+    def __init__(self, flow_mgr, store_result, debug=False) -> None:
+        super().__init__(flow_mgr, store_result)
+        self.debug = debug
+
     @RequestDataValidator(
         vol.Schema(
             {
@@ -75,7 +86,7 @@ class RequestLoginFlowIndexView(LoginFlowIndexView):
         )
     )
     @log_invalid_auth
-    async def post(self, request, data):
+    async def post(self, request: Request, data):
         """Create a new login flow."""
         if not await indieauth.verify_redirect_uri(
             request.app["hass"], data["client_id"], data["redirect_uri"]
@@ -90,6 +101,8 @@ class RequestLoginFlowIndexView(LoginFlowIndexView):
             handler = data["handler"]
 
         try:
+            if self.debug:
+                _LOGGER.warning(request.headers)
             result = await self._flow_mgr.async_init(
                 handler,
                 context={
