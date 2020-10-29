@@ -39,14 +39,14 @@ async def async_setup(hass: HomeAssistant, config):
     """Register custom view which includes request in context"""
     # Because we start after auth, we have access to store_result
     store_result = hass.data[AUTH_DOMAIN]
-    # Remove old LoginFlowResourceView
+    # Remove old LoginFlowIndexView
     for route in hass.http.app.router._resources:
         if route.canonical == "/auth/login_flow":
             _LOGGER.debug("Removed original login_flow route")
             hass.http.app.router._resources.remove(route)
     _LOGGER.debug("Add new login_flow route")
     hass.http.register_view(
-        RequestLoginFlowResourceView(hass.auth.login_flow, store_result)
+        RequestLoginFlowIndexView(hass.auth.login_flow, store_result)
     )
 
     # Inject Auth-Header provider.
@@ -63,7 +63,7 @@ async def async_setup(hass: HomeAssistant, config):
     return True
 
 
-class RequestLoginFlowResourceView(LoginFlowIndexView):
+class RequestLoginFlowIndexView(LoginFlowIndexView):
     @RequestDataValidator(
         vol.Schema(
             {
