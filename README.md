@@ -20,6 +20,11 @@ auth_header:
     # username_header: X-Forwarded-Preferred-Username
     # Optionally enable debug mode to see the headers Home-Assistant gets
     # debug: false
+# Optionally, if something is not working right, add this block below to get more information
+logger:
+    default: info
+    logs:
+        custom_components.auth_header: debug
 ```
 
 Afterwards, restart Home Assistant.
