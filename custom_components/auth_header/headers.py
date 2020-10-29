@@ -112,6 +112,7 @@ class HeaderAuthProvider(AuthProvider):
             ip_addr in trusted_network
             for trusted_network in self.hass.http.trusted_proxies
         ):
+            _LOGGER.warning("Remote IP not in trusted proxies: %s", ip_addr)
             raise InvalidAuthError("Not in trusted_proxies")
 
 
@@ -140,13 +141,13 @@ class HeaderLoginFlow(LoginFlow):
                 self._ip_address
             )
 
-        except InvalidAuthError:
-            _LOGGER.debug("invalid auth")
+        except InvalidAuthError as exc:
+            _LOGGER.debug("invalid auth", exc_info=exc)
             return self.async_abort(reason="not_allowed")
 
         for user in self._available_users:
             if user.name == self._remote_user:
                 return await self.async_finish({"user": user.id})
 
-        _LOGGER.debug("no user")
+        _LOGGER.debug("no user found")
         return self.async_abort(reason="not_allowed")
