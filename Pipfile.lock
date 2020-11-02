@@ -183,11 +183,11 @@
         },
         "homeassistant": {
             "hashes": [
-                "sha256:2284f0bf4624cb5e7ff0eb713512bf1a332568000c2d99b6ee795ad25f1395ad",
-                "sha256:ea068cd57e68c74b0bfe33f2c87fa1e09097304eb56f46104afed68b41cba862"
+                "sha256:35b7dde15f00555dbfb8b5b1bfe55a1ba3d08aca939c1f4e34ab3d7eff7961e2",
+                "sha256:3dc9bbe5e32093ced17adfd5c52e867ff3916f123cffc3edab6c7ea222a9d375"
             ],
             "index": "pypi",
-            "version": "==0.117.0"
+            "version": "==0.117.2"
         },
         "httpcore": {
             "hashes": [
@@ -439,10 +439,10 @@
         },
         "toml": {
             "hashes": [
-                "sha256:926b612be1e5ce0634a2ca03470f95169cf16f939018233a670519cb4ac58b0f",
-                "sha256:bda89d5935c2eac546d648028b9901107a595863cb36bae0c73ac804a9b4ce88"
+                "sha256:806143ae5bfb6a3c6e736a764057db0e6a0e05e338b5630894a5f779cabb4f9b",
+                "sha256:b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
             ],
-            "version": "==0.10.1"
+            "version": "==0.10.2"
         },
         "typed-ast": {
             "hashes": [
