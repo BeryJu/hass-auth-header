@@ -172,7 +172,7 @@
                 "sha256:f2aa3f8ba9e2e3fd49bd3de743b976ab192fbf0eb0348cebde5d2a9de0090a9f",
                 "sha256:fb70a4cedd69dc52396ee114416a3656e011fb0311fca55eb55c7be6ed9c8aef"
             ],
-            "version": "==3.2.0"
+            "version": "==3.2"
         },
         "h11": {
             "hashes": [
@@ -183,11 +183,11 @@
         },
         "homeassistant": {
             "hashes": [
-                "sha256:35b7dde15f00555dbfb8b5b1bfe55a1ba3d08aca939c1f4e34ab3d7eff7961e2",
-                "sha256:3dc9bbe5e32093ced17adfd5c52e867ff3916f123cffc3edab6c7ea222a9d375"
+                "sha256:9f3ea8828f8ab74a63175cbd68dd7ff804a4d7a9434048831fee60e4f6895e20",
+                "sha256:f8097541bf90ae4d4d8267ec4f0d400b48e7415d9991d70470390c5f6f061c51"
             ],
             "index": "pypi",
-            "version": "==0.117.2"
+            "version": "==0.117.4"
         },
         "httpcore": {
             "hashes": [
@@ -355,10 +355,10 @@
         },
         "pytz": {
             "hashes": [
-                "sha256:a494d53b6d39c3c6e44c3bec237336e14305e4f29bbf800b599253057fbb79ed",
-                "sha256:c35965d010ce31b23eeb663ed3cc8c906275d6be1a34393a1d73a41febf4a048"
+                "sha256:3e6b7dd2d1e0a59084bcee14a17af60c5c562cdc16d828e8eba2e683d3a7e268",
+                "sha256:5c55e189b682d420be27c6995ba6edce0c0a77dd67bfbe2ae6607134d5851ffd"
             ],
-            "version": "==2020.1"
+            "version": "==2020.4"
         },
         "pyyaml": {
             "hashes": [
