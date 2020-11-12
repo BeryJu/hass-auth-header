@@ -88,10 +88,10 @@
         },
         "certifi": {
             "hashes": [
-                "sha256:5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3",
-                "sha256:8fc0819f1f30ba15bdb34cceffb9ef04d99f420f68eb75d901e9560b8749fc41"
+                "sha256:1f422849db327d534e3d0c5f02a263458c3955ec0aae4ff09b95f195c59f4edd",
+                "sha256:f05def092c44fbf25834a51509ef6e631dc19765ab8a57b4e7ab85531f0a9cf4"
             ],
-            "version": "==2020.6.20"
+            "version": "==2020.11.8"
         },
         "cffi": {
             "hashes": [
@@ -183,18 +183,18 @@
         },
         "homeassistant": {
             "hashes": [
-                "sha256:a9839c355b69ff8081fecd80b056a820f100bda3489854f7ff1d6214188846a5",
-                "sha256:f92776076d3ad5defd9a47b311b7f4f313bb09eedc26af74d032061460528bce"
+                "sha256:27122ea97ba2c44ed83ef9d486bfdd63d7f03354a1a620e1e86ffb8ce20aa9a7",
+                "sha256:dd72e4f689a266930959fd29e9d137eb4e63fb9f6a2c652a7fae1e80218a1644"
             ],
             "index": "pypi",
-            "version": "==0.117.5"
+            "version": "==0.117.6"
         },
         "httpcore": {
             "hashes": [
-                "sha256:18c4afcbfe884b635e59739105aed1692e132bc5d31597109f3c1c97e4ec1cac",
-                "sha256:2526a38f31ac5967d38b7f593b5d8c4bd3fa82c21400402f866ba3312946acbf"
+                "sha256:37660b117ba9055e8d5d19c29684d2204bbd3150020dde0ebd2dd2bcf18dfe50",
+                "sha256:3c5fcd97c52c3f6a1e4d939d776458e6177b5c238b825ed51d72840e582573b5"
             ],
-            "version": "==0.12.0"
+            "version": "==0.12.1"
         },
         "httpx": {
             "hashes": [
