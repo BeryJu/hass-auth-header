@@ -204,18 +204,18 @@
         },
         "homeassistant": {
             "hashes": [
-                "sha256:9bf9a0d844399cee7aa9128f6da8e0d080ebf036cf80298b20a3ac2e58d8a151",
-                "sha256:cb63b974643e3a3d8f0e393dce505b2faf3ede0690ca098618a628d7634e408e"
+                "sha256:2b423299e3a9d66d8ffab1f4c088efefaa5d11f7584fcadd83c7e5d02f95200d",
+                "sha256:9c7c5696325916a4babdfd01e21f2a94f2bc4c249e1c217110eb8104a7d9ff97"
             ],
             "index": "pypi",
-            "version": "==0.118.1"
+            "version": "==0.118.2"
         },
         "httpcore": {
             "hashes": [
-                "sha256:37660b117ba9055e8d5d19c29684d2204bbd3150020dde0ebd2dd2bcf18dfe50",
-                "sha256:3c5fcd97c52c3f6a1e4d939d776458e6177b5c238b825ed51d72840e582573b5"
+                "sha256:420700af11db658c782f7e8fda34f9dcd95e3ee93944dd97d78cb70247e0cd06",
+                "sha256:dd1d762d4f7c2702149d06be2597c35fb154c5eff9789a8c5823fbcf4d2978d6"
             ],
-            "version": "==0.12.1"
+            "version": "==0.12.2"
         },
         "httpx": {
             "hashes": [
