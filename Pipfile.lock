@@ -197,18 +197,18 @@
         },
         "h11": {
             "hashes": [
-                "sha256:3c6c61d69c6f13d41f1b80ab0322f1872702a3ba26e12aa864c928f6a43fbaab",
-                "sha256:ab6c335e1b6ef34b205d5ca3e228c9299cc7218b049819ec84a388c2525e5d87"
+                "sha256:36a3cb8c0a032f56e2da7084577878a035d3b61d104230d4bd49c0c6b555a9c6",
+                "sha256:47222cb6067e4a307d535814917cd98fd0a57b6788ce715755fa2b6c28b56042"
             ],
-            "version": "==0.11.0"
+            "version": "==0.12.0"
         },
         "homeassistant": {
             "hashes": [
-                "sha256:287418f299c0f7dc6f6539893f47c534ff6750defdda3cfe0390edab042f0c61",
-                "sha256:c132b75f72084bcbec160e5653a302dd003e8f7837a050d6e1eaf49d19060ded"
+                "sha256:074816e884a57ce7e833fda67bd0565c8dfbee4c7506d4b79c273b45a4bb557a",
+                "sha256:6191febd0e277e9d4e8ed98da1646ea5c6c6c0497502f2d7997213ad0770298a"
             ],
             "index": "pypi",
-            "version": "==2020.12.2"
+            "version": "==2021.1.0"
         },
         "httpcore": {
             "hashes": [
@@ -540,10 +540,10 @@
         },
         "voluptuous": {
             "hashes": [
-                "sha256:0fff348a097c9a74f9f4a991d2cf01a6185780e997ad953bde49cb3efbb411be",
-                "sha256:3a4ef294e16f6950c79de4cba88f31092a107e6e3aaa29950b43e2bb9e1bb2dc"
+                "sha256:663572419281ddfaf4b4197fd4942d181630120fb39b333e3adad70aeb56444b",
+                "sha256:8ace33fcf9e6b1f59406bfaf6b8ec7bcc44266a9f29080b4deb4fe6ff2492386"
             ],
-            "version": "==0.12.0"
+            "version": "==0.12.1"
         },
         "voluptuous-serialize": {
             "hashes": [
