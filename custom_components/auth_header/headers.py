@@ -9,7 +9,6 @@ import voluptuous as vol
 from aiohttp.web_request import Request
 from homeassistant.auth.models import Credentials, User, UserMeta
 from homeassistant.auth.providers import (
-    AUTH_PROVIDER_SCHEMA,
     AUTH_PROVIDERS,
     AuthProvider,
     LoginFlow,
@@ -146,6 +145,10 @@ class HeaderLoginFlow(LoginFlow):
             return self.async_abort(reason="not_allowed")
 
         for user in self._available_users:
+            for cred in user.credentials:
+                if "username" in cred.data:
+                    if cred.data["username"] == self._remote_user:
+                        return await self.async_finish({"user": user.id})
             if user.name == self._remote_user:
                 return await self.async_finish({"user": user.id})
 
