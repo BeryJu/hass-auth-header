@@ -2,6 +2,9 @@
 
 This custom component allows you to delegate authentication to a reverse proxy.
 
+This integrations checks the value of a configured header and authenticates based on its value. The value of the header is
+checked against usernames AND full names. Users have to be created in Home Assistant by hand.
+
 **Use with caution. If misconfigured, this can lead to a Home Assistant instance that anyone can access**
 
 ## Installation
@@ -17,7 +20,7 @@ http:
     trusted_proxies:
         - 1.2.3.4/32 # This needs to be set to the IP of your reverse proxy
 auth_header:
-    # Optionally set this if you're not using passbook proxy or oauth2_proxy
+    # Optionally set this if you're not using authentik proxy or oauth2_proxy
     # username_header: X-Forwarded-Preferred-Username
     # Optionally enable debug mode to see the headers Home-Assistant gets
     # debug: false
