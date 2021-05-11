@@ -9,5 +9,6 @@
   "dependencies": [
     "auth"
   ],
-  "codeowners": ["@BeryJu"]
+  "codeowners": ["@BeryJu"],
+  "version": "1.4"
 }
