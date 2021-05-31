@@ -35,6 +35,10 @@ Afterwards, restart Home Assistant.
 
 ![](./.github/demo.gif)
 
+## CSRF Errors when used with oauth2_proxy or authentik
+
+See https://github.com/goauthentik/authentik/issues/884#issuecomment-851542477
+
 ## How it works
 
 On boot, two main things are done when the integration is enabled:
