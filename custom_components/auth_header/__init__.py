@@ -6,7 +6,6 @@ from aiohttp.web_request import Request
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
 from homeassistant import data_entry_flow
-from homeassistant.auth import providers
 from homeassistant.components.auth import DOMAIN as AUTH_DOMAIN
 from homeassistant.components.auth import indieauth
 from homeassistant.components.auth.login_flow import (
@@ -67,6 +66,15 @@ async def async_setup(hass: HomeAssistant, config):
     return True
 
 
+def get_actual_ip(request: Request) -> str:
+    """Get remote from `request` without considering overrides. This is because
+    when behind a reverse proxy, hass overrides the .remote attributes with the X-Forwarded-For
+    value. We still need to check the actual remote though, to verify its from a valid proxy."""
+    if isinstance(request._transport_peername, (list, tuple)):
+        return request._transport_peername[0]
+    return request._transport_peername
+
+
 class RequestLoginFlowIndexView(LoginFlowIndexView):
 
     debug: bool
@@ -101,13 +109,14 @@ class RequestLoginFlowIndexView(LoginFlowIndexView):
             handler = data["handler"]
 
         try:
-            if self.debug:
-                _LOGGER.warning(request.headers)
+            _LOGGER.debug(request.headers)
+            actual_ip = get_actual_ip(request)
+            _LOGGER.debug("Got actual IP %s", actual_ip)
             result = await self._flow_mgr.async_init(
                 handler,
                 context={
                     "request": request,
-                    "ip_address": ip_address(request.remote),
+                    "ip_address": ip_address(actual_ip),
                     "credential_only": data.get("type") == "link_user",
                 },
             )

@@ -15,8 +15,7 @@ Update your configuration.yaml file with
 
 ```yaml
 http:
-    # Ensure this is turned off, otherwise this integration will only get the IP from the client
-    use_x_forwarded_for: false
+    use_x_forwarded_for: true
     trusted_proxies:
         - 1.2.3.4/32 # This needs to be set to the IP of your reverse proxy
 auth_header:
