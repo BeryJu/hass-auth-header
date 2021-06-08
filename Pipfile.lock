@@ -220,11 +220,11 @@
         },
         "homeassistant": {
             "hashes": [
-                "sha256:bce0ddeec49bb71445e84f9867231c1b76d460d2ddd59e183cc43184f1892173",
-                "sha256:c81ef565b39bf5208059c873e5d6263cef4c4d57d0b5c948158526e1cc3c9573"
+                "sha256:0755fa04643fbf9a5c03bd1e2ccf7c5a05cb4fb3c973739fc8a84f65dd831e13",
+                "sha256:17011ee450291e77338e5f1bc84712408dda179f321b14bcf82e3eca7e86bc01"
             ],
             "index": "pypi",
-            "version": "==2021.6.2"
+            "version": "==2021.6.3"
         },
         "httpcore": {
             "hashes": [
