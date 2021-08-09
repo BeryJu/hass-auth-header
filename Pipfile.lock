@@ -233,11 +233,11 @@
         },
         "homeassistant": {
             "hashes": [
-                "sha256:584c271c05c21c6c7c0b569b14d02d97c538f1922922060d44572aefa3575967",
-                "sha256:c776f0d11d678c021d9deff276e83185c66e8d07bfbe344c84face2de025d2b0"
+                "sha256:03ed322b68a11ccd50fb2162440be92115c83d70daf0508649c4c3de93c7cb19",
+                "sha256:1c5492d4e68a0eb4ade58a73944f9c58eff55bd0d4a53f475de276d85b3a21a8"
             ],
             "index": "pypi",
-            "version": "==2021.8.1"
+            "version": "==2021.8.4"
         },
         "httpcore": {
             "hashes": [
