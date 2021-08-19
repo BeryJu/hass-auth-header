@@ -233,11 +233,11 @@
         },
         "homeassistant": {
             "hashes": [
-                "sha256:5c19eb50b04369fd35c00cf6f6c910614ff472130627d5838dfc3f6a3a2f27eb",
-                "sha256:e3ce74625d29278f0f53ae9c10fb0acac1899a0a3f56ba715752cdb8a5c22248"
+                "sha256:3343989b8ebecbabfd9808ea0783d12de801fef9d7085b6e419f478db36f5a10",
+                "sha256:906128a318952206e31dc35c83cb002ff7fb9faab65d29b4006df06538fd1343"
             ],
             "index": "pypi",
-            "version": "==2021.8.7"
+            "version": "==2021.8.8"
         },
         "httpcore": {
             "hashes": [
@@ -267,7 +267,7 @@
                 "sha256:9c2ea1e62d871267b78307fe511c0838ba0da28698c5732d54e2790bf3ba9899",
                 "sha256:e17d6e2b81095c9db0a03a8025a957f334d6ea30b26f9ec70805411e5c7c81f2"
             ],
-            "markers": "python_version < '4' and python_full_version >= '3.6.1'",
+            "markers": "python_version < '4.0' and python_full_version >= '3.6.1'",
             "version": "==5.9.3"
         },
         "jinja2": {
@@ -572,7 +572,7 @@
                 "sha256:39fb8672126159acb139a7718dd10806104dec1e2f0f6c88aab05d17df10c8d4",
                 "sha256:f57b4c16c62fa2760b7e3d97c35b255512fb6b59a259730f36ba32ce9f8e342f"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4.0'",
             "version": "==1.26.6"
         },
         "voluptuous": {
