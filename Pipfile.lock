@@ -62,11 +62,11 @@
         },
         "anyio": {
             "hashes": [
-                "sha256:0b993a2ef6c1dc456815c2b5ca2819f382f20af98087cc2090a4afed3a501436",
-                "sha256:c32da314c510b34a862f5afeaf8a446ffed2c2fde21583e654bd71ecfb5b744b"
+                "sha256:56ceaeed2877723578b1341f4f68c29081db189cfb40a97d1922b9513f6d7db6",
+                "sha256:8eccec339cb4a856c94a75d50fc1d451faf32a05ef406be462e2efc59c9838b0"
             ],
             "markers": "python_full_version >= '3.6.2'",
-            "version": "==3.3.2"
+            "version": "==3.3.3"
         },
         "astral": {
             "hashes": [
@@ -78,11 +78,11 @@
         },
         "astroid": {
             "hashes": [
-                "sha256:dcc06f6165f415220013801642bd6c9808a02967070919c4b746c6864c205471",
-                "sha256:fe81f80c0b35264acb5653302ffbd935d394f1775c5e4487df745bf9c2442708"
+                "sha256:304e99c129794f2cfda584a12b71fde85205da950e2f330f4be09150525ae949",
+                "sha256:9eaeaf92b3e21b70bec1a262e7eb118d2e96294892a5de595c92a12adc80dfc2"
             ],
             "markers": "python_version ~= '3.6'",
-            "version": "==2.8.0"
+            "version": "==2.8.2"
         },
         "async-timeout": {
             "hashes": [
@@ -134,10 +134,10 @@
         },
         "certifi": {
             "hashes": [
-                "sha256:2bbf76fd432960138b3ef6dda3dde0544f27cbf8546c458e60baf371917ba9ee",
-                "sha256:50b1e4f8446b06f41be7dd6338db18e0990601dce795c2b1686458aa7e8fa7d8"
+                "sha256:78884e7c1d4b00ce3cea67b44566851c4343c120abd683433ce934a68ea58872",
+                "sha256:d62a0163eb4c2344ac042ab2bdf75399a71a2d8c7d47eac2e2ee91b9d6339569"
             ],
-            "version": "==2021.5.30"
+            "version": "==2021.10.8"
         },
         "cffi": {
             "hashes": [
@@ -246,11 +246,11 @@
         },
         "homeassistant": {
             "hashes": [
-                "sha256:132fd03efd32dceeaa6a032d04e1d3d7b8c737a930b4148eefcd7393e589d679",
-                "sha256:35df95b2b75c1cc877dba56848f963ab115a12722b4e0236181a0af5b1125c9f"
+                "sha256:0015e25cf66c70c020a13b718c5a9a9d6b77fc5b950e8efe58580e9a26bb4a31",
+                "sha256:9adfe975cc8f3573a5751fa9548570f10c579e53143324f9c8f7e2cf236d3888"
             ],
             "index": "pypi",
-            "version": "==2021.10.0"
+            "version": "==2021.10.2"
         },
         "httpcore": {
             "hashes": [
