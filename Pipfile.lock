@@ -199,11 +199,11 @@
         },
         "charset-normalizer": {
             "hashes": [
-                "sha256:5d209c0a931f215cee683b6445e2d77677e7e75e159f78def0db09d68fafcaa6",
-                "sha256:5ec46d183433dcbd0ab716f2d7f29d8dee50505b3fdb40c6b985c7c4f5a3591f"
+                "sha256:e019de665e2bcf9c2b64e2e5aa025fa991da8720daa3c1138cadd2fd1856aed0",
+                "sha256:f7af805c321bfa1ce6714c51f254e0d5bb5e5834039bc17db7ebe3a4cec9492b"
             ],
             "markers": "python_version >= '3'",
-            "version": "==2.0.6"
+            "version": "==2.0.7"
         },
         "ciso8601": {
             "hashes": [
@@ -246,11 +246,11 @@
         },
         "homeassistant": {
             "hashes": [
-                "sha256:0015e25cf66c70c020a13b718c5a9a9d6b77fc5b950e8efe58580e9a26bb4a31",
-                "sha256:9adfe975cc8f3573a5751fa9548570f10c579e53143324f9c8f7e2cf236d3888"
+                "sha256:7260341f246287bfaff7f636d83865f2dfa1ae4507fb6d98bdc9cc7ff0a202c9",
+                "sha256:a6f2a22e517e123e9e4da501a38061d49cff8c810eb72f96d9f206cd21a0d7c2"
             ],
             "index": "pypi",
-            "version": "==2021.10.2"
+            "version": "==2021.10.3"
         },
         "httpcore": {
             "hashes": [
