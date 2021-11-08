@@ -251,11 +251,11 @@
         },
         "homeassistant": {
             "hashes": [
-                "sha256:650554bf7d16dcee42ccc102f54273ac5758732059168103e8ce9b0cb2c088a3",
-                "sha256:66e53c933416a6b1a9b977333b4f58846507143c164c49ac6e4c2ed2926b3221"
+                "sha256:3590e71585b6cf203b8ef9dc9adedbbd7d076fd55699bc513db976bd264a5356",
+                "sha256:550a3a9ee08c680842f3fc8d3691ebd37eb86e235375e8ab16edb30467b08819"
             ],
             "index": "pypi",
-            "version": "==2021.11.0"
+            "version": "==2021.11.1"
         },
         "httpcore": {
             "hashes": [
@@ -285,7 +285,7 @@
                 "sha256:1a18ccace2ed8910bd9458b74a3ecbafd7b2f581301b0ab65cfdd4338272d76f",
                 "sha256:e52ff6d38012b131628cf0f26c51e7bd3a7c81592eefe3ac71411e692f1b9345"
             ],
-            "markers": "python_version < '4.0' and python_full_version >= '3.6.1'",
+            "markers": "python_version < '4' and python_full_version >= '3.6.1'",
             "version": "==5.10.0"
         },
         "jinja2": {
@@ -494,11 +494,11 @@
         },
         "pycparser": {
             "hashes": [
-                "sha256:2d475327684562c3a96cc71adf7dc8c4f0565175cf86b6d7a404ff4c771f15f0",
-                "sha256:7582ad22678f0fcd81102833f60ef8d0e57288b6b5fb00323d101be910e35705"
+                "sha256:8ee45429555515e1f6b185e78100aea234072576aa43ab53aefcae078162fca9",
+                "sha256:e644fdec12f7872f86c58ff790da456218b10f863970249516d60a5eaca77206"
             ],
             "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3'",
-            "version": "==2.20"
+            "version": "==2.21"
         },
         "pyjwt": {
             "hashes": [
@@ -631,7 +631,7 @@
                 "sha256:4987c65554f7a2dbf30c18fd48778ef124af6fab771a377103da0585e2336ece",
                 "sha256:c4fdf4019605b6e5423637e01bc9fe4daef873709a7973e195ceba0a62bbc844"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4.0'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4'",
             "version": "==1.26.7"
         },
         "voluptuous": {
