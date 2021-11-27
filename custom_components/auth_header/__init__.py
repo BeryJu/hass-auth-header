@@ -1,4 +1,5 @@
 import logging
+from http import HTTPStatus
 from ipaddress import ip_address
 from typing import OrderedDict
 from aiohttp.web_request import Request
@@ -14,7 +15,6 @@ from homeassistant.components.auth.login_flow import (
 )
 from homeassistant.components.http.ban import log_invalid_auth, process_success_login
 from homeassistant.components.http.data_validator import RequestDataValidator
-from homeassistant.const import HTTP_BAD_REQUEST, HTTP_NOT_FOUND
 from homeassistant.core import HomeAssistant
 
 from . import headers
@@ -100,7 +100,7 @@ class RequestLoginFlowIndexView(LoginFlowIndexView):
             request.app["hass"], data["client_id"], data["redirect_uri"]
         ):
             return self.json_message(
-                "invalid client id or redirect uri", HTTP_BAD_REQUEST
+                "invalid client id or redirect uri", HTTPStatus.BAD_REQUEST
             )
 
         if isinstance(data["handler"], list):
@@ -121,9 +121,9 @@ class RequestLoginFlowIndexView(LoginFlowIndexView):
                 },
             )
         except data_entry_flow.UnknownHandler:
-            return self.json_message("Invalid handler specified", HTTP_NOT_FOUND)
+            return self.json_message("Invalid handler specified", HTTPStatus.NOT_FOUND)
         except data_entry_flow.UnknownStep:
-            return self.json_message("Handler does not support init", HTTP_BAD_REQUEST)
+            return self.json_message("Handler does not support init", HTTPStatus.BAD_REQUEST)
 
         if result["type"] == data_entry_flow.RESULT_TYPE_CREATE_ENTRY:
             await process_success_login(request)
