@@ -26,7 +26,7 @@ CONFIG_SCHEMA = vol.Schema(
         DOMAIN: vol.Schema(
             {
                 vol.Optional(
-                    "username_header", default="X-Forwarded-Preferred-Username"
+                    "username_header", default="X-Authentik-Username"
                 ): cv.string,
                 vol.Optional("debug", default=False): cv.boolean,
             }
