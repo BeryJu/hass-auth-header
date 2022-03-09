@@ -251,7 +251,7 @@
                 "sha256:2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597",
                 "sha256:6881edbebdb17b39b4eaaa821b438bf6eddffb4468cf344f09f89def34a8b1df"
             ],
-            "markers": "python_version >= '3.5'",
+            "markers": "python_full_version >= '3.5.0'",
             "version": "==2.0.12"
         },
         "ciso8601": {
@@ -361,11 +361,11 @@
         },
         "homeassistant": {
             "hashes": [
-                "sha256:2ddd0e5e7f38daa8160f324a8dfda2c19cff62e3c9de20f204eeb8f117f51538",
-                "sha256:68125ddef10be215769b6a856fbdd02142f438d6c15d06f92e6209f795a84cc2"
+                "sha256:23f05e9cc16ee5a81e5301c6634e22d278ab0d694947aac58fe35734fade43c4",
+                "sha256:bfc2a9097c48105d4d51a7bcfaff81069786cfeb0bc02ba2d4ec2f855b4c61a3"
             ],
             "index": "pypi",
-            "version": "==2022.3.2"
+            "version": "==2022.3.3"
         },
         "httpcore": {
             "hashes": [
@@ -577,11 +577,11 @@
         },
         "pip": {
             "hashes": [
-                "sha256:c146f331f0805c77017c6bb9740cec4a49a0d4582d0c3cc8244b057f83eca359",
-                "sha256:f29d589df8c8ab99c060e68ad294c4a9ed896624f6368c5349d70aa581b333d0"
+                "sha256:b3a9de2c6ef801e9247d1527a4b16f92f2cc141cd1489f3fffaf6a9e96729764",
+                "sha256:c6aca0f2f081363f689f041d90dab2a07a9a07fb840284db2218117a52da800b"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==22.0.3"
+            "version": "==22.0.4"
         },
         "platformdirs": {
             "hashes": [
@@ -706,7 +706,7 @@
                 "sha256:471b71698eac1c2112a40ce2752bb2f4a4814c22a54a3eed3676bc0f5ca9f663",
                 "sha256:c4666eecec1d3f50960c6bdf61ab7bc350648da6c126e3cf6898d8cd4ddcd3de"
             ],
-            "markers": "python_version >= '3.5'",
+            "markers": "python_full_version >= '3.5.0'",
             "version": "==1.2.0"
         },
         "text-unidecode": {
