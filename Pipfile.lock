@@ -369,11 +369,11 @@
         },
         "homeassistant": {
             "hashes": [
-                "sha256:9f59eb13c20dd565a3c7849cb55fab122b1d1991f7ba39147f721a0716459257",
-                "sha256:a4de827901cbcacd14a968a47f6a6c5b3e43f5557ab71ed049878edfab8583e3"
+                "sha256:2ada3effb21dbd99109e7beb4af64ca26c96c963de876982f59e2f40e5b23a3e",
+                "sha256:932c6865c0332690053f2029ae4f566c83eaa94dcfbc2b6737d2783a236d4379"
             ],
             "index": "pypi",
-            "version": "==2022.3.7"
+            "version": "==2022.3.8"
         },
         "httpcore": {
             "hashes": [
@@ -738,7 +738,7 @@
                 "sha256:1a9462dcc3347a79b1f1c0271fbe79e844580bb598bafa1ed208b94da3cdcd42",
                 "sha256:21c85e0fe4b9a155d0799430b0ad741cdce7e359660ccbd8b530613e8df88ce2"
             ],
-            "markers": "python_version < '3.10'",
+            "markers": "python_version >= '3.6'",
             "version": "==4.1.1"
         },
         "urllib3": {
