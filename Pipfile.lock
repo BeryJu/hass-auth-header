@@ -251,7 +251,7 @@
                 "sha256:2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597",
                 "sha256:6881edbebdb17b39b4eaaa821b438bf6eddffb4468cf344f09f89def34a8b1df"
             ],
-            "markers": "python_version >= '3.5'",
+            "markers": "python_full_version >= '3.5.0'",
             "version": "==2.0.12"
         },
         "ciso8601": {
@@ -369,11 +369,11 @@
         },
         "homeassistant": {
             "hashes": [
-                "sha256:96f08c6cc6d46deb8e99b7174eba9133152577e41b262c05fcc398bbed838b8f",
-                "sha256:e99eed71d9a3d303043f707b3a77a4917897369c6579ac7c35800148f528d4ba"
+                "sha256:abc9869d29781c893c4f254a52f873bebeaf88039f8a18230614ca0163cdf8c2",
+                "sha256:cc0d330aeb80196935cbc22fd2a6bf6ee5e6df398fd6eb2fd23fcbc5d2869108"
             ],
             "index": "pypi",
-            "version": "==2022.4.0"
+            "version": "==2022.4.1"
         },
         "httpcore": {
             "hashes": [
@@ -696,11 +696,11 @@
         },
         "setuptools": {
             "hashes": [
-                "sha256:7999cbd87f1b6e1f33bf47efa368b224bed5e27b5ef2c4d46580186cbcb1a86a",
-                "sha256:a65e3802053e99fc64c6b3b29c11132943d5b8c8facbcc461157511546510967"
+                "sha256:26ead7d1f93efc0f8c804d9fafafbe4a44b179580a7105754b245155f9af05a8",
+                "sha256:47c7b0c0f8fc10eec4cf1e71c6fdadf8decaa74ffa087e68cd1c20db7ad6a592"
             ],
             "markers": "python_version >= '3.7'",
-            "version": "==62.0.0"
+            "version": "==62.1.0"
         },
         "six": {
             "hashes": [
@@ -715,7 +715,7 @@
                 "sha256:471b71698eac1c2112a40ce2752bb2f4a4814c22a54a3eed3676bc0f5ca9f663",
                 "sha256:c4666eecec1d3f50960c6bdf61ab7bc350648da6c126e3cf6898d8cd4ddcd3de"
             ],
-            "markers": "python_version >= '3.5'",
+            "markers": "python_full_version >= '3.5.0'",
             "version": "==1.2.0"
         },
         "text-unidecode": {
@@ -738,7 +738,7 @@
                 "sha256:1a9462dcc3347a79b1f1c0271fbe79e844580bb598bafa1ed208b94da3cdcd42",
                 "sha256:21c85e0fe4b9a155d0799430b0ad741cdce7e359660ccbd8b530613e8df88ce2"
             ],
-            "markers": "python_version < '3.10'",
+            "markers": "python_version >= '3.6'",
             "version": "==4.1.1"
         },
         "urllib3": {
