@@ -156,7 +156,7 @@
                 "sha256:d0f97caf565fadaee80347596b49edcca860690fc76293fe3aec9393e5e31097",
                 "sha256:fd1b059c103103fb6c41de024de60f6a9e05007c5a62ed1cee4a2f7d7ff672d6"
             ],
-            "markers": "python_version >= '3.7' and python_version < '4'",
+            "markers": "python_version >= '3.7' and python_version < '4.0'",
             "version": "==22.2.0"
         },
         "bcrypt": {
@@ -369,11 +369,11 @@
         },
         "homeassistant": {
             "hashes": [
-                "sha256:abc9869d29781c893c4f254a52f873bebeaf88039f8a18230614ca0163cdf8c2",
-                "sha256:cc0d330aeb80196935cbc22fd2a6bf6ee5e6df398fd6eb2fd23fcbc5d2869108"
+                "sha256:d744af61d5e110cdfc9926a5cb914e3737fef2c89a3444b8c264f12f1303459c",
+                "sha256:fb6edcaead55d52d883a323b9b47a9ab98c2a1aad4b21e6533f869bf9515cfe3"
             ],
             "index": "pypi",
-            "version": "==2022.4.1"
+            "version": "==2022.4.2"
         },
         "httpcore": {
             "hashes": [
@@ -411,7 +411,7 @@
                 "sha256:6f62d78e2f89b4500b080fe3a81690850cd254227f27f75c3a0c491a1f351ba7",
                 "sha256:e8443a5e7a020e9d7f97f1d7d9cd17c88bcb3bc7e218bf9cf5095fe550be2951"
             ],
-            "markers": "python_version < '4' and python_full_version >= '3.6.1'",
+            "markers": "python_version < '4.0' and python_full_version >= '3.6.1'",
             "version": "==5.10.1"
         },
         "jinja2": {
@@ -746,7 +746,7 @@
                 "sha256:44ece4d53fb1706f667c9bd1c648f5469a2ec925fcf3a776667042d645472c14",
                 "sha256:aabaf16477806a5e1dd19aa41f8c2b7950dd3c746362d7e3223dbe6de6ac448e"
             ],
-            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4'",
+            "markers": "python_version >= '2.7' and python_version not in '3.0, 3.1, 3.2, 3.3, 3.4' and python_version < '4.0'",
             "version": "==1.26.9"
         },
         "voluptuous": {
