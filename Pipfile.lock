@@ -251,7 +251,7 @@
                 "sha256:2857e29ff0d34db842cd7ca3230549d1a697f96ee6d3fb071cfa6c7393832597",
                 "sha256:6881edbebdb17b39b4eaaa821b438bf6eddffb4468cf344f09f89def34a8b1df"
             ],
-            "markers": "python_full_version >= '3.5.0'",
+            "markers": "python_version >= '3.5'",
             "version": "==2.0.12"
         },
         "ciso8601": {
@@ -369,11 +369,11 @@
         },
         "homeassistant": {
             "hashes": [
-                "sha256:09abdabbbd83a44964ae07ad9e62dc13cfd00254189dd6d3d11590cfaf9d60e4",
-                "sha256:d8905250b8f8753e238f47baac80a1e8310b6f85442a17a7cc6d2837047a48bb"
+                "sha256:142b6e46115beea5ac90506463a9308e16ead54c5ffcc1f62dee9f8866b056cb",
+                "sha256:fa29ce80effcd728155ed9b079f0ce06a85db4ca25f13948ae0bac3024eebe20"
             ],
             "index": "pypi",
-            "version": "==2022.5.0"
+            "version": "==2022.5.1"
         },
         "httpcore": {
             "hashes": [
@@ -715,7 +715,7 @@
                 "sha256:471b71698eac1c2112a40ce2752bb2f4a4814c22a54a3eed3676bc0f5ca9f663",
                 "sha256:c4666eecec1d3f50960c6bdf61ab7bc350648da6c126e3cf6898d8cd4ddcd3de"
             ],
-            "markers": "python_full_version >= '3.5.0'",
+            "markers": "python_version >= '3.5'",
             "version": "==1.2.0"
         },
         "text-unidecode": {
