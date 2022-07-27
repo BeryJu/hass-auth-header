@@ -216,7 +216,7 @@ python-versions = ">=3.6"
 
 [[package]]
 name = "homeassistant"
-version = "2022.7.6"
+version = "2022.7.7"
 description = "Open-source home automation platform running on Python 3."
 category = "dev"
 optional = false
@@ -397,10 +397,10 @@ optional = false
 python-versions = ">=3.6"
 
 [package.extras]
+tests = ["coverage[toml] (==5.0.4)", "pytest (>=6.0.0,<7.0.0)"]
+docs = ["zope.interface", "sphinx-rtd-theme", "sphinx"]
+dev = ["pre-commit", "mypy", "coverage[toml] (==5.0.4)", "pytest (>=6.0.0,<7.0.0)", "cryptography (>=3.3.1)", "zope.interface", "sphinx-rtd-theme", "sphinx"]
 crypto = ["cryptography (>=3.3.1)"]
-dev = ["sphinx", "sphinx-rtd-theme", "zope.interface", "cryptography (>=3.3.1)", "pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)", "mypy", "pre-commit"]
-docs = ["sphinx", "sphinx-rtd-theme", "zope.interface"]
-tests = ["pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)"]
 
 [[package]]
 name = "pylint"
@@ -589,7 +589,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "1f50a1ebbc6f0931e3ada4b30162618e8acd63079d346cda20524033296b1382"
+content-hash = "e02732e1e22d0fc531bfa0adbececcfff4095c12e4eed488384d025a05ff3595"
 
 [metadata.files]
 aiohttp = [
@@ -878,8 +878,8 @@ h11 = [
     {file = "h11-0.12.0.tar.gz", hash = "sha256:47222cb6067e4a307d535814917cd98fd0a57b6788ce715755fa2b6c28b56042"},
 ]
 homeassistant = [
-    {file = "homeassistant-2022.7.6-py3-none-any.whl", hash = "sha256:2091cd51a761ff4901bfa8365e1eb57a9cbfda8128a01b1adc6ee60dfe8e4d6e"},
-    {file = "homeassistant-2022.7.6.tar.gz", hash = "sha256:16529417332997f82fe3b50b8638bc8b8af2b9600c4358ad25d509e72f923f1d"},
+    {file = "homeassistant-2022.7.7-py3-none-any.whl", hash = "sha256:2eacc3b1ed6f3bf19f51b6bba0cc072e627844f6d97fab30f698dca10c40f7e0"},
+    {file = "homeassistant-2022.7.7.tar.gz", hash = "sha256:6e60fa28a4c1b59abaf6e827ba9316f20532a6066eb92e60857d317825452159"},
 ]
 httpcore = [
     {file = "httpcore-0.15.0-py3-none-any.whl", hash = "sha256:1105b8b73c025f23ff7c36468e4432226cbb959176eab66864b8e31c4ee27fa6"},
