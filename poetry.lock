@@ -259,7 +259,7 @@ bleak = ">=0.14.3"
 
 [[package]]
 name = "homeassistant"
-version = "2022.8.5"
+version = "2022.8.6"
 description = "Open-source home automation platform running on Python 3."
 category = "dev"
 optional = false
@@ -306,8 +306,8 @@ h11 = ">=0.11,<0.13"
 sniffio = ">=1.0.0,<2.0.0"
 
 [package.extras]
-socks = ["socksio (>=1.0.0,<2.0.0)"]
 http2 = ["h2 (>=3,<5)"]
+socks = ["socksio (>=1.0.0,<2.0.0)"]
 
 [[package]]
 name = "httpx"
@@ -324,10 +324,10 @@ rfc3986 = {version = ">=1.3,<2", extras = ["idna2008"]}
 sniffio = "*"
 
 [package.extras]
-socks = ["socksio (>=1.0.0,<2.0.0)"]
+brotli = ["brotlicffi", "brotli"]
+cli = ["click (>=8.0.0,<9.0.0)", "rich (>=10,<13)", "pygments (>=2.0.0,<3.0.0)"]
 http2 = ["h2 (>=3,<5)"]
-cli = ["pygments (>=2.0.0,<3.0.0)", "rich (>=10,<13)", "click (>=8.0.0,<9.0.0)"]
-brotli = ["brotli", "brotlicffi"]
+socks = ["socksio (>=1.0.0,<2.0.0)"]
 
 [[package]]
 name = "idna"
@@ -354,10 +354,10 @@ optional = false
 python-versions = ">=3.6.1,<4.0"
 
 [package.extras]
-plugins = ["setuptools"]
+pipfile_deprecated_finder = ["pipreqs", "requirementslib"]
+requirements_deprecated_finder = ["pipreqs", "pip-api"]
 colors = ["colorama (>=0.4.3,<0.5.0)"]
-requirements_deprecated_finder = ["pip-api", "pipreqs"]
-pipfile_deprecated_finder = ["requirementslib", "pipreqs"]
+plugins = ["setuptools"]
 
 [[package]]
 name = "jinja2"
@@ -453,10 +453,10 @@ optional = false
 python-versions = ">=3.6"
 
 [package.extras]
-tests = ["coverage[toml] (==5.0.4)", "pytest (>=6.0.0,<7.0.0)"]
-docs = ["zope.interface", "sphinx-rtd-theme", "sphinx"]
-dev = ["pre-commit", "mypy", "coverage[toml] (==5.0.4)", "pytest (>=6.0.0,<7.0.0)", "cryptography (>=3.3.1)", "zope.interface", "sphinx-rtd-theme", "sphinx"]
 crypto = ["cryptography (>=3.3.1)"]
+dev = ["sphinx", "sphinx-rtd-theme", "zope.interface", "cryptography (>=3.3.1)", "pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)", "mypy", "pre-commit"]
+docs = ["sphinx", "sphinx-rtd-theme", "zope.interface"]
+tests = ["pytest (>=6.0.0,<7.0.0)", "coverage[toml] (==5.0.4)"]
 
 [[package]]
 name = "pylint"
@@ -477,8 +477,8 @@ tomli = {version = ">=1.1.0", markers = "python_version < \"3.11\""}
 tomlkit = ">=0.10.1"
 
 [package.extras]
-testutils = ["gitpython (>3)"]
 spelling = ["pyenchant (>=3.2,<4.0)"]
+testutils = ["gitpython (>3)"]
 
 [[package]]
 name = "pyobjc-core"
@@ -687,7 +687,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "303739a9318bf33048d558f51d8ab80d1a57a0eed8b283df447963a41fecf457"
+content-hash = "ad59b26da43fdd04a97a0d823091bc79a7da6c81d0705f8bfcfac16dfcfd87a5"
 
 [metadata.files]
 aiohttp = [
@@ -999,8 +999,8 @@ home-assistant-bluetooth = [
     {file = "home_assistant_bluetooth-1.3.0-py3-none-any.whl", hash = "sha256:00aaffe0e5c37213d2f25b65aada15dd6d02f1b9d2fe89e927ac69e59ee8f2f9"},
 ]
 homeassistant = [
-    {file = "homeassistant-2022.8.5-py3-none-any.whl", hash = "sha256:9ab587ff60fd71edc3d22719fdda4b5c96545e43cc1a40217b2104518f46aa3e"},
-    {file = "homeassistant-2022.8.5.tar.gz", hash = "sha256:f64e05c7c56bd50d567ce4a0d1fb666a140a6dc4046ff35618dd04e679cf3163"},
+    {file = "homeassistant-2022.8.6-py3-none-any.whl", hash = "sha256:29c431d6e89e5142abe6403f8410761bbc28670ad30892f1452bbe6c3439efd1"},
+    {file = "homeassistant-2022.8.6.tar.gz", hash = "sha256:e3f24b3d1f1999cd4fb1e3cf1e9a4ed776cb96afc3cb43c44a360457a0a3adb6"},
 ]
 httpcore = [
     {file = "httpcore-0.15.0-py3-none-any.whl", hash = "sha256:1105b8b73c025f23ff7c36468e4432226cbb959176eab66864b8e31c4ee27fa6"},
