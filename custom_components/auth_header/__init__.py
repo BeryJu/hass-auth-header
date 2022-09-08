@@ -2,7 +2,8 @@ import logging
 from http import HTTPStatus
 from ipaddress import ip_address
 from typing import OrderedDict
-from aiohttp.web_request import Request
+from aiohttp.web import Request, Response
+from typing import Any
 
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
@@ -94,15 +95,15 @@ class RequestLoginFlowIndexView(LoginFlowIndexView):
         )
     )
     @log_invalid_auth
-    async def post(self, request: Request, data):
+    async def post(self, request: Request, data: dict[str, Any]) -> Response:
         """Create a new login flow."""
-        if not await indieauth.verify_redirect_uri(
-            request.app["hass"], data["client_id"], data["redirect_uri"]
-        ):
-            return self.json_message(
-                "invalid client id or redirect uri", HTTPStatus.BAD_REQUEST
-            )
+        client_id: str = data["client_id"]
+        redirect_uri: str = data["redirect_uri"]
 
+        if not indieauth.verify_client_id(client_id):
+            return self.json_message("Invalid client id", HTTPStatus.BAD_REQUEST)
+
+        handler: tuple[str, ...] | str
         if isinstance(data["handler"], list):
             handler = tuple(data["handler"])
         else:
@@ -113,22 +114,19 @@ class RequestLoginFlowIndexView(LoginFlowIndexView):
             actual_ip = get_actual_ip(request)
             _LOGGER.debug("Got actual IP %s", actual_ip)
             result = await self._flow_mgr.async_init(
-                handler,
+                handler,  # type: ignore[arg-type]
                 context={
                     "request": request,
-                    "ip_address": ip_address(actual_ip),
+                    "ip_address": ip_address(actual_ip),  # type: ignore[arg-type]
                     "credential_only": data.get("type") == "link_user",
+                    "redirect_uri": redirect_uri,
                 },
             )
         except data_entry_flow.UnknownHandler:
             return self.json_message("Invalid handler specified", HTTPStatus.NOT_FOUND)
         except data_entry_flow.UnknownStep:
-            return self.json_message("Handler does not support init", HTTPStatus.BAD_REQUEST)
+            return self.json_message(
+                "Handler does not support init", HTTPStatus.BAD_REQUEST
+            )
 
-        if result["type"] == data_entry_flow.RESULT_TYPE_CREATE_ENTRY:
-            await process_success_login(request)
-            result.pop("data")
-            result["result"] = self._store_result(data["client_id"], result["result"])
-            return self.json(result)
-
-        return self.json(_prepare_result_json(result))
+        return await self._async_flow_result_to_response(request, client_id, result)
