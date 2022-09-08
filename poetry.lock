@@ -59,7 +59,7 @@ pytz = "*"
 
 [[package]]
 name = "astroid"
-version = "2.12.4"
+version = "2.12.9"
 description = "An abstract syntax tree for Python with inference support."
 category = "dev"
 optional = false
@@ -472,14 +472,14 @@ tests = ["coverage[toml] (==5.0.4)", "pytest (>=6.0.0,<7.0.0)"]
 
 [[package]]
 name = "pylint"
-version = "2.15.0"
+version = "2.15.2"
 description = "python code static checker"
 category = "dev"
 optional = false
 python-versions = ">=3.7.2"
 
 [package.dependencies]
-astroid = ">=2.12.4,<=2.14.0-dev0"
+astroid = ">=2.12.9,<=2.14.0-dev0"
 colorama = {version = ">=0.4.5", markers = "sys_platform == \"win32\""}
 dill = ">=0.2"
 isort = ">=4.2.5,<6"
@@ -699,7 +699,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "7931b131dd6e9df962b2a685507d92a70ae389c97670e53e8ef74a66c66f1e05"
+content-hash = "9b5d6ae8dfc43b339095f541533e8b2d2c533eb3628192360cec0d43bce63340"
 
 [metadata.files]
 aiohttp = [
@@ -789,8 +789,8 @@ astral = [
     {file = "astral-2.2.tar.gz", hash = "sha256:e41d9967d5c48be421346552f0f4dedad43ff39a83574f5ff2ad32b6627b6fbe"},
 ]
 astroid = [
-    {file = "astroid-2.12.4-py3-none-any.whl", hash = "sha256:af71cdc0775b6e4d88076746620e2c8cd1bf4533a9977cfdd00eeea97d95530c"},
-    {file = "astroid-2.12.4.tar.gz", hash = "sha256:39fa822c82dc112f5072a208ddf01c58184043aa90e3e469786fa0520c71aaa7"},
+    {file = "astroid-2.12.9-py3-none-any.whl", hash = "sha256:27a22f40e45af6d362498647a0940e8ae9c35f71cb572a1b6f8f810122a11918"},
+    {file = "astroid-2.12.9.tar.gz", hash = "sha256:0dafbfcf4ebdecd3c8f6d742c9d9c88508229ca823d5c98ab872d964f3321e56"},
 ]
 async-timeout = [
     {file = "async-timeout-4.0.2.tar.gz", hash = "sha256:2163e1640ddb52b7a8c80d0a67a08587e5d245cc9c553a74a847056bc2976b15"},
@@ -1297,8 +1297,8 @@ pyjwt = [
     {file = "PyJWT-2.4.0.tar.gz", hash = "sha256:d42908208c699b3b973cbeb01a969ba6a96c821eefb1c5bfe4c390c01d67abba"},
 ]
 pylint = [
-    {file = "pylint-2.15.0-py3-none-any.whl", hash = "sha256:4b124affc198b7f7c9b5f9ab690d85db48282a025ef9333f51d2d7281b92a6c3"},
-    {file = "pylint-2.15.0.tar.gz", hash = "sha256:4f3f7e869646b0bd63b3dfb79f3c0f28fc3d2d923ea220d52620fd625aed92b0"},
+    {file = "pylint-2.15.2-py3-none-any.whl", hash = "sha256:cc3da458ba810c49d330e09013dec7ced5217772dec8f043ccdd34dae648fde8"},
+    {file = "pylint-2.15.2.tar.gz", hash = "sha256:f63404a2547edb5247da263748771ac9a806ed1de4174cda01293c08ddbc2999"},
 ]
 pyobjc-core = [
     {file = "pyobjc-core-8.5.tar.gz", hash = "sha256:704c275439856c0d1287469f0d589a7d808d48b754a93d9ce5415d4eaf06d576"},
