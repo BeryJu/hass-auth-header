@@ -53,7 +53,7 @@ class HeaderAuthProvider(AuthProvider):
                 self,
                 None,
                 [],
-                cast(IPAddress, context.get("ip_address")),
+                cast(IPAddress, context.get("conn_ip_address")),
             )
         remote_user = request.headers[header_name]
         # Translate username to id
@@ -65,7 +65,7 @@ class HeaderAuthProvider(AuthProvider):
             self,
             remote_user,
             available_users,
-            cast(IPAddress, context.get("ip_address")),
+            cast(IPAddress, context.get("conn_ip_address")),
         )
 
     async def async_user_meta_for_credentials(

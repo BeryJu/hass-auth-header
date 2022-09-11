@@ -117,7 +117,8 @@ class RequestLoginFlowIndexView(LoginFlowIndexView):
                 handler,  # type: ignore[arg-type]
                 context={
                     "request": request,
-                    "ip_address": ip_address(actual_ip),  # type: ignore[arg-type]
+                    "ip_address": ip_address(request.remote),  # type: ignore[arg-type]
+                    "conn_ip_address": ip_address(actual_ip),  # type: ignore[arg-type]
                     "credential_only": data.get("type") == "link_user",
                     "redirect_uri": redirect_uri,
                 },
