@@ -67,7 +67,10 @@ python-versions = ">=3.7.2"
 
 [package.dependencies]
 lazy-object-proxy = ">=1.4.0"
-wrapt = {version = ">=1.14,<2", markers = "python_version >= \"3.11\""}
+wrapt = [
+    {version = ">=1.11,<2", markers = "python_version < \"3.11\""},
+    {version = ">=1.14,<2", markers = "python_version >= \"3.11\""},
+]
 
 [[package]]
 name = "async-timeout"
@@ -219,6 +222,9 @@ category = "dev"
 optional = false
 python-versions = ">=3.7,<4.0"
 
+[package.dependencies]
+async-timeout = {version = ">=3.0.0", markers = "python_version < \"3.11\""}
+
 [package.extras]
 docs = ["Sphinx (>=5.1.1,<6.0.0)", "myst-parser (>=0.18.0,<0.19.0)", "sphinx-rtd-theme (>=1.0.0,<2.0.0)", "sphinxcontrib-asyncio (>=0.3.0,<0.4.0)", "sphinxcontrib-fulltoc (>=1.2.0,<2.0.0)"]
 
@@ -262,7 +268,7 @@ bleak = ">=0.19.0"
 
 [[package]]
 name = "homeassistant"
-version = "2022.11.4"
+version = "2022.11.5"
 description = "Open-source home automation platform running on Python 3."
 category = "dev"
 optional = false
@@ -485,6 +491,7 @@ dill = ">=0.2"
 isort = ">=4.2.5,<6"
 mccabe = ">=0.6,<0.8"
 platformdirs = ">=2.2.0"
+tomli = {version = ">=1.1.0", markers = "python_version < \"3.11\""}
 tomlkit = ">=0.10.1"
 
 [package.extras]
@@ -620,6 +627,14 @@ optional = false
 python-versions = "*"
 
 [[package]]
+name = "tomli"
+version = "2.0.1"
+description = "A lil' TOML parser"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[[package]]
 name = "tomlkit"
 version = "0.11.0"
 description = "Style preserving TOML library"
@@ -689,8 +704,8 @@ multidict = ">=4.0"
 
 [metadata]
 lock-version = "1.1"
-python-versions = "~3.11"
-content-hash = "858ea7ea3cc7a87ca8155255534ed5a47233c46848687daab5e951435c78f4ae"
+python-versions = "^3.10"
+content-hash = "b05103a69882d59af2e043ff94db6e684063c890eefd57c826ab736bf79fc504"
 
 [metadata.files]
 aiohttp = [
@@ -1036,8 +1051,8 @@ home-assistant-bluetooth = [
     {file = "home_assistant_bluetooth-1.6.0.tar.gz", hash = "sha256:82487a7e6bdcf59a703def06b1659c9d7ed1bd8d8742129f5bc198d00360c8c7"},
 ]
 homeassistant = [
-    {file = "homeassistant-2022.11.4-py3-none-any.whl", hash = "sha256:78f13709727541851ea6e4cb3e8ab4cd40244da9cf6315535272d55f63778345"},
-    {file = "homeassistant-2022.11.4.tar.gz", hash = "sha256:ac79ad484180ab58d294d9664050b5e47e6626273581ecd2e8645483cb4f9584"},
+    {file = "homeassistant-2022.11.5-py3-none-any.whl", hash = "sha256:73f43ea357950f736dbdce71ef433208285588d2e5b57e2efad24de5f0dce952"},
+    {file = "homeassistant-2022.11.5.tar.gz", hash = "sha256:852c75a13f7f256d7ebe64409b0801186c94779b64d7535f28c64d0d90b7a6f2"},
 ]
 httpcore = [
     {file = "httpcore-0.15.0-py3-none-any.whl", hash = "sha256:1105b8b73c025f23ff7c36468e4432226cbb959176eab66864b8e31c4ee27fa6"},
@@ -1434,6 +1449,10 @@ sniffio = [
 text-unidecode = [
     {file = "text-unidecode-1.3.tar.gz", hash = "sha256:bad6603bb14d279193107714b288be206cac565dfa49aa5b105294dd5c4aab93"},
     {file = "text_unidecode-1.3-py2.py3-none-any.whl", hash = "sha256:1311f10e8b895935241623731c2ba64f4c455287888b18189350b67134a822e8"},
+]
+tomli = [
+    {file = "tomli-2.0.1-py3-none-any.whl", hash = "sha256:939de3e7a6161af0c887ef91b7d41a53e7c5a1ca976325f429cb46ea9bc30ecc"},
+    {file = "tomli-2.0.1.tar.gz", hash = "sha256:de526c12914f0c550d15924c62d72abc48d6fe7364aa87328337a31007fe8a4f"},
 ]
 tomlkit = [
     {file = "tomlkit-0.11.0-py3-none-any.whl", hash = "sha256:0f4050db66fd445b885778900ce4dd9aea8c90c4721141fde0d6ade893820ef1"},
