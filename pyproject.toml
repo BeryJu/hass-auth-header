@@ -10,4 +10,4 @@ python = "^3.10"
 
 [tool.poetry.dev-dependencies]
 homeassistant = "^2022.11.5"
-pylint = "^2.15.7"
+pylint = "^2.15.8"
