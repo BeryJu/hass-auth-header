@@ -230,17 +230,6 @@ docs = ["Sphinx (>=5.1.1,<6.0.0)", "myst-parser (>=0.18.0,<0.19.0)", "sphinx-rtd
 
 [[package]]
 name = "dill"
-version = "0.3.5.1"
-description = "serialize all of python"
-category = "dev"
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*, !=3.6.*"
-
-[package.extras]
-graph = ["objgraph (>=1.7.2)"]
-
-[[package]]
-name = "dill"
 version = "0.3.6"
 description = "serialize all of python"
 category = "dev"
@@ -279,7 +268,7 @@ bleak = ">=0.19.0"
 
 [[package]]
 name = "homeassistant"
-version = "2022.12.7"
+version = "2022.12.8"
 description = "Open-source home automation platform running on Python 3."
 category = "dev"
 optional = false
@@ -719,7 +708,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "177959833c0b4a4eb186e40845e5b57d235c1f11d608742dae969402fa43e13c"
+content-hash = "8f3ecde97dd31d32f8266017f74ab2a01cf3ebdb1d604ede2a382394220e3a0c"
 
 [metadata.files]
 aiohttp = [
@@ -992,8 +981,6 @@ dbus-fast = [
     {file = "dbus_fast-1.61.1.tar.gz", hash = "sha256:bda4a7d559047b74f409eda278f68f610a418e86ad3efa0368fa2ed240daa6b6"},
 ]
 dill = [
-    {file = "dill-0.3.5.1-py2.py3-none-any.whl", hash = "sha256:33501d03270bbe410c72639b350e941882a8b0fd55357580fbc873fba0c59302"},
-    {file = "dill-0.3.5.1.tar.gz", hash = "sha256:d75e41f3eff1eee599d738e76ba8f4ad98ea229db8b085318aa2b3333a208c86"},
     {file = "dill-0.3.6-py3-none-any.whl", hash = "sha256:a07ffd2351b8c678dfc4a856a3005f8067aea51d6ba6c700796a4d9e280f39f0"},
     {file = "dill-0.3.6.tar.gz", hash = "sha256:e5db55f3687856d8fbdab002ed78544e1c4559a130302693d839dfe8f93f2373"},
 ]
@@ -1067,8 +1054,8 @@ home-assistant-bluetooth = [
     {file = "home_assistant_bluetooth-1.8.1.tar.gz", hash = "sha256:7c7ed94ab9488ee0a354b4eae8fe037d70a1d269dabe7c16e42e97a8ead23b61"},
 ]
 homeassistant = [
-    {file = "homeassistant-2022.12.7-py3-none-any.whl", hash = "sha256:4746c5afafd6e247f192d78c49cc6855e335c8c36e228c49cf780ec4448e5b43"},
-    {file = "homeassistant-2022.12.7.tar.gz", hash = "sha256:8b0ce0289ad8c8c59bd0bbc34fc3b0508b8b917199c74f17be2e3a73829a7c98"},
+    {file = "homeassistant-2022.12.8-py3-none-any.whl", hash = "sha256:16d0c9db27506c7f26a672719acb622b014c7fe309085389c4fac9edb99d1f3f"},
+    {file = "homeassistant-2022.12.8.tar.gz", hash = "sha256:9a5937db7771408de014f08960d3ae16f01c2ee19183002ce76d2353522582e7"},
 ]
 httpcore = [
     {file = "httpcore-0.15.0-py3-none-any.whl", hash = "sha256:1105b8b73c025f23ff7c36468e4432226cbb959176eab66864b8e31c4ee27fa6"},
