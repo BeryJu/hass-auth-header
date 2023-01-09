@@ -227,7 +227,7 @@ python-versions = ">=3.9,<4.0"
 
 [[package]]
 name = "homeassistant"
-version = "2023.1.0"
+version = "2023.1.2"
 description = "Open-source home automation platform running on Python 3."
 category = "dev"
 optional = false
@@ -625,7 +625,7 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10"
-content-hash = "9de9d95d3adf2ad3e1093ac9c976a21fc877bbae76ec54c3498dd43422db1c53"
+content-hash = "bf4bbb60f6d1c3ce8c27c4ce8f79e10c90a94700a615878948be58329c1500a1"
 
 [metadata.files]
 aiohttp = [
@@ -968,8 +968,8 @@ home-assistant-bluetooth = [
     {file = "home_assistant_bluetooth-1.9.2.tar.gz", hash = "sha256:29ad60340adfc95e54bab07bc68894a23cee07da9ce3684b79cb7d814098a9ce"},
 ]
 homeassistant = [
-    {file = "homeassistant-2023.1.0-py3-none-any.whl", hash = "sha256:04612f5a4aec40738f87d25b8ec9fb499d968984e2907d5404067f948cd4928c"},
-    {file = "homeassistant-2023.1.0.tar.gz", hash = "sha256:c197540898ece481ad5bf632befc76690b3521a442d172adfb97e5cf81c6a17a"},
+    {file = "homeassistant-2023.1.2-py3-none-any.whl", hash = "sha256:ee84c2cca7672827602ca26e275b3298e26df74e90c01466ead4975ed4fedd4a"},
+    {file = "homeassistant-2023.1.2.tar.gz", hash = "sha256:9182366b8591760b73a4a2684b1eaf8743a039ecd64fb870e07c4287908a620e"},
 ]
 httpcore = [
     {file = "httpcore-0.15.0-py3-none-any.whl", hash = "sha256:1105b8b73c025f23ff7c36468e4432226cbb959176eab66864b8e31c4ee27fa6"},
