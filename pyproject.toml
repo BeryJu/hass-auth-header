@@ -9,5 +9,5 @@ license = "GPL"
 python = "^3.10"
 
 [tool.poetry.dev-dependencies]
-homeassistant = "^2023.2.2"
+homeassistant = "^2023.2.3"
 pylint = "^2.16.1"
