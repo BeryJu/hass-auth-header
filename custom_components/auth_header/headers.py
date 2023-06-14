@@ -55,7 +55,7 @@ class HeaderAuthProvider(AuthProvider):
                 [],
                 cast(IPAddress, context.get("conn_ip_address")),
             )
-        remote_user = request.headers[header_name]
+        remote_user = request.headers[header_name].casefold()
         # Translate username to id
         users = await self.store.async_get_users()
         available_users = [
