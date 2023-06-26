@@ -559,13 +559,13 @@ files = [
 
 [[package]]
 name = "homeassistant"
-version = "2023.6.2"
+version = "2023.6.3"
 description = "Open-source home automation platform running on Python 3."
 optional = false
 python-versions = ">=3.10.0"
 files = [
-    {file = "homeassistant-2023.6.2-py3-none-any.whl", hash = "sha256:c432e063106bacdad69f7d3364537a64f5e14c02e688827c8cf7ab9eb01c6273"},
-    {file = "homeassistant-2023.6.2.tar.gz", hash = "sha256:58f8ea28292d08493bc8faf3f3f183a61a05b43e10de3d1c231531384c1cfe2d"},
+    {file = "homeassistant-2023.6.3-py3-none-any.whl", hash = "sha256:ce443bdb0a7803e08fb1625df58bc454d3a8dc0c0d75e5884b7a8e83439e9d5d"},
+    {file = "homeassistant-2023.6.3.tar.gz", hash = "sha256:8655362cd1bff54cbb5df493fd9c1539009aaf4205bc5520a4c4a8482be24eb7"},
 ]
 
 [package.dependencies]
@@ -591,7 +591,7 @@ pyOpenSSL = "23.1.0"
 python-slugify = "4.0.1"
 pyyaml = "6.0"
 requests = "2.31.0"
-typing-extensions = ">=4.5.0,<5.0"
+typing-extensions = ">=4.6.3,<5.0"
 ulid-transform = "0.7.2"
 voluptuous = "0.13.1"
 voluptuous-serialize = "2.6.0"
@@ -1229,13 +1229,13 @@ files = [
 
 [[package]]
 name = "typing-extensions"
-version = "4.5.0"
+version = "4.6.3"
 description = "Backported and Experimental Type Hints for Python 3.7+"
 optional = false
 python-versions = ">=3.7"
 files = [
-    {file = "typing_extensions-4.5.0-py3-none-any.whl", hash = "sha256:fb33085c39dd998ac16d1431ebc293a8b3eedd00fd4a32de0ff79002c19511b4"},
-    {file = "typing_extensions-4.5.0.tar.gz", hash = "sha256:5cb5f4a79139d699607b3ef622a1dedafa84e115ab0024e0d9c044a9479ca7cb"},
+    {file = "typing_extensions-4.6.3-py3-none-any.whl", hash = "sha256:88a4153d8505aabbb4e13aacb7c486c2b4a33ca3b3f807914a9b4c844c471c26"},
+    {file = "typing_extensions-4.6.3.tar.gz", hash = "sha256:d91d5919357fe7f681a9f2b5b4cb2a5f1ef0a1e9f59c4d8ff0d3491e05c0ffd5"},
 ]
 
 [[package]]
@@ -1467,4 +1467,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "f8559c7bbae3a729495c15a174dcee5e7579f4fc4e547b6e539135bf102ed870"
+content-hash = "dda3dff6a30457dc8902643428e714f74610f9c84588f87a8464580c8e9ec5b7"
