@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=https://goauthentik.io/blueprints/schema.json
+version: 1
+metadata:
+  name: hass-auth-header - Testing setup
+context:
+  # Needs to be changed if the test setup is completely in docker
+  internal_host: http://localhost:8123
+entries:
+  - model: authentik_providers_proxy.proxyprovider
+    id: provider
+    identifiers:
+      name: hass-auth-header
+    attrs:
+      authorization_flow: !Find [authentik_flows.flow, [slug, default-provider-authorization-implicit-consent]]
+      mode: proxy
+      internal_host: !Context internal_host
+      external_host: http://hass-auth-header.127.0.0.1.nip.io:9000
+  - model: authentik_core.application
+    identifiers:
+      slug: hass-auth-header
+    attrs:
+      name: Homeassistant
+      provider: !KeyOf provider
+  - model: authentik_outposts.outpost
+    identifiers:
+      managed: goauthentik.io/outposts/embedded
+    attrs:
+      providers:
+        - !KeyOf provider

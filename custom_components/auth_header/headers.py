@@ -147,5 +147,5 @@ class HeaderLoginFlow(LoginFlow):
             if user.name == self._remote_user:
                 return await self.async_finish({"user": user.id})
 
-        _LOGGER.debug("no user found")
+        _LOGGER.debug("no matching user found")
         return self.async_abort(reason="not_allowed")

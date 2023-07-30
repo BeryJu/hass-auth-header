@@ -1,0 +1,15 @@
+version: '3'
+services:
+  homeassistant:
+    image: "ghcr.io/home-assistant/home-assistant:${VERSION}"
+    volumes:
+      - temp_config:/config
+      - ../custom_components:/config/custom_components
+      - ./fixed_config/configuration.yaml:/config/configuration.yaml
+      - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+    ports:
+      - 8123:8123
+
+volumes:
+  temp_config:
