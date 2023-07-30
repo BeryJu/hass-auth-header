@@ -5,7 +5,7 @@ Allow access to users based on a header set by a reverse-proxy.
 import logging
 from typing import Any, Dict, List, Optional, cast
 
-from aiohttp.web_request import Request
+from aiohttp.web import Request
 from homeassistant.auth.models import Credentials, User, UserMeta
 from homeassistant.auth.providers import AUTH_PROVIDERS, AuthProvider, LoginFlow
 from homeassistant.auth.providers.trusted_networks import (

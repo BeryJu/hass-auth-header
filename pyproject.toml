@@ -13,3 +13,17 @@ homeassistant = "^2023.7.3"
 pylint = "*"
 black = "*"
 isort = "*"
+
+[tool.pylint.master]
+disable = [
+    "protected-access"
+]
+
+[tool.isort]
+line_length = 100
+
+[tool.black]
+line-length = 100
+
+[tool.ruff]
+line-length = 100

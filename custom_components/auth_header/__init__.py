@@ -1,7 +1,7 @@
 import logging
 from http import HTTPStatus
 from ipaddress import ip_address
-from typing import Any, OrderedDict
+from typing import Any, OrderedDict, TYPE_CHECKING
 
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
@@ -15,6 +15,10 @@ from homeassistant.components.http.data_validator import RequestDataValidator
 from homeassistant.core import HomeAssistant
 
 from . import headers
+
+if TYPE_CHECKING:
+    from homeassistant.components.http import FastUrlDispatcher
+    from aiohttp.web_urldispatcher import UrlDispatcher, AbstractResource
 
 DOMAIN = "auth_header"
 _LOGGER = logging.getLogger(__name__)
@@ -37,11 +41,22 @@ async def async_setup(hass: HomeAssistant, config):
     """Register custom view which includes request in context"""
     # Because we start after auth, we have access to store_result
     store_result = hass.data[AUTH_DOMAIN]
+    router: "FastUrlDispatcher" | "UrlDispatcher" = hass.http.app.router
     # Remove old LoginFlowIndexView
-    for route in hass.http.app.router._resources:
-        if route.canonical == "/auth/login_flow":
-            _LOGGER.debug("Removed original login_flow route")
+    # HASS < 2023.8 just has a list of all routes, which we can directly remove from
+    for route in router._resources:
+        if route.canonical == RequestLoginFlowIndexView.url:
+            _LOGGER.debug("Removed original login_flow route (UrlDispatcher) %s", route)
             hass.http.app.router._resources.remove(route)
+    # HASS 2023.8+ uses the "FastUrlDispatcher", which also keeps a dict for faster lookups
+    if hasattr(router, "_resource_index"):
+        resource_index: dict[str, list["AbstractResource"]] = router._resource_index
+        routes = resource_index.get(RequestLoginFlowIndexView.url, None)
+        if routes:
+            for route in routes:
+                if route.canonical == RequestLoginFlowIndexView.url:
+                    _LOGGER.debug("Removed original login_flow route (FastUrlDispatcher) %s", route)
+                    routes.remove(route)
     _LOGGER.debug("Add new login_flow route")
     hass.http.register_view(
         RequestLoginFlowIndexView(
@@ -93,6 +108,7 @@ class RequestLoginFlowIndexView(LoginFlowIndexView):
     @log_invalid_auth
     async def post(self, request: Request, data: dict[str, Any]) -> Response:
         """Create a new login flow."""
+        _LOGGER.debug("post")
         client_id: str = data["client_id"]
         redirect_uri: str = data["redirect_uri"]
 
