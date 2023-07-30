@@ -108,7 +108,6 @@ class RequestLoginFlowIndexView(LoginFlowIndexView):
     @log_invalid_auth
     async def post(self, request: Request, data: dict[str, Any]) -> Response:
         """Create a new login flow."""
-        _LOGGER.debug("post")
         client_id: str = data["client_id"]
         redirect_uri: str = data["redirect_uri"]
 
