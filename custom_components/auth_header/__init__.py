@@ -1,20 +1,16 @@
 import logging
 from http import HTTPStatus
 from ipaddress import ip_address
-from typing import OrderedDict
-from aiohttp.web import Request, Response
-from typing import Any
+from typing import Any, OrderedDict
 
 import homeassistant.helpers.config_validation as cv
 import voluptuous as vol
+from aiohttp.web import Request, Response
 from homeassistant import data_entry_flow
 from homeassistant.components.auth import DOMAIN as AUTH_DOMAIN
 from homeassistant.components.auth import indieauth
-from homeassistant.components.auth.login_flow import (
-    LoginFlowIndexView,
-    _prepare_result_json,
-)
-from homeassistant.components.http.ban import log_invalid_auth, process_success_login
+from homeassistant.components.auth.login_flow import LoginFlowIndexView
+from homeassistant.components.http.ban import log_invalid_auth
 from homeassistant.components.http.data_validator import RequestDataValidator
 from homeassistant.core import HomeAssistant
 
@@ -70,14 +66,14 @@ async def async_setup(hass: HomeAssistant, config):
 def get_actual_ip(request: Request) -> str:
     """Get remote from `request` without considering overrides. This is because
     when behind a reverse proxy, hass overrides the .remote attributes with the X-Forwarded-For
-    value. We still need to check the actual remote though, to verify its from a valid proxy."""
+    value. We still need to check the actual remote though, to verify its from a valid proxy.
+    """
     if isinstance(request._transport_peername, (list, tuple)):
         return request._transport_peername[0]
     return request._transport_peername
 
 
 class RequestLoginFlowIndexView(LoginFlowIndexView):
-
     debug: bool
 
     def __init__(self, flow_mgr, store_result, debug=False) -> None:
