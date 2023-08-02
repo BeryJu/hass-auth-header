@@ -1,5 +1,6 @@
 import logging
 from http import HTTPStatus
+import os.path
 from ipaddress import ip_address
 from typing import Any, OrderedDict, TYPE_CHECKING
 
@@ -63,6 +64,13 @@ async def async_setup(hass: HomeAssistant, config):
             hass.auth.login_flow, store_result, config[DOMAIN]["debug"]
         )
     )
+
+    # Load script to store tokens in local storage, else we'll re-auth on every browser refresh.
+    hass.http.register_static_path(
+        "/auth_header/store-token.js",
+        os.path.join(os.path.dirname(__file__), 'store-token.js'),
+    )
+    hass.components.frontend.add_extra_js_url(hass, '/auth_header/store-token.js')
 
     # Inject Auth-Header provider.
     providers = OrderedDict()
