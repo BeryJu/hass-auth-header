@@ -14,6 +14,7 @@ from homeassistant.components.auth.login_flow import LoginFlowIndexView
 from homeassistant.components.http.ban import log_invalid_auth
 from homeassistant.components.http.data_validator import RequestDataValidator
 from homeassistant.core import HomeAssistant
+from homeassistant.components.frontend import add_extra_js_url
 
 from . import headers
 
@@ -70,7 +71,7 @@ async def async_setup(hass: HomeAssistant, config):
         "/auth_header/store-token.js",
         os.path.join(os.path.dirname(__file__), 'store-token.js'),
     )
-    hass.components.frontend.add_extra_js_url(hass, '/auth_header/store-token.js')
+    add_extra_js_url(hass, '/auth_header/store-token.js')
 
     # Inject Auth-Header provider.
     providers = OrderedDict()
