@@ -21,8 +21,8 @@ http:
 auth_header:
     # Optionally set this if you're not using authentik proxy or oauth2_proxy
     # username_header: X-Forwarded-Preferred-Username
-    # Optionally set this if you want to bypass the login prompt
-    # allow_bypass_login: true
+    # Optionally set this if you don't want to bypass the login prompt
+    # allow_bypass_login: false
     # Optionally enable debug mode to see the headers Home-Assistant gets
     # debug: false
 # Optionally, if something is not working right, add this block below to get more information

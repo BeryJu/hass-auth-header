@@ -29,7 +29,7 @@ CONFIG_SCHEMA = vol.Schema(
         DOMAIN: vol.Schema(
             {
                 vol.Optional("username_header", default="X-Forwarded-Preferred-Username"): cv.string,
-                vol.Optional("allow_bypass_login", default=False): cv.boolean,
+                vol.Optional("allow_bypass_login", default=True): cv.boolean,
                 vol.Optional("debug", default=False): cv.boolean,
             }
         )
