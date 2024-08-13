@@ -16,6 +16,7 @@ from homeassistant.auth.providers.trusted_networks import (
 from homeassistant.core import callback
 
 CONF_USERNAME_HEADER = "username_header"
+CONF_ALLOW_BYPASS_LOGIN = "allow_bypass_login"
 _LOGGER = logging.getLogger(__name__)
 
 
@@ -49,6 +50,7 @@ class HeaderAuthProvider(AuthProvider):
                 None,
                 [],
                 cast(IPAddress, context.get("conn_ip_address")),
+                self.config[CONF_ALLOW_BYPASS_LOGIN],
             )
         remote_user = request.headers[header_name].casefold()
         # Translate username to id
@@ -61,6 +63,7 @@ class HeaderAuthProvider(AuthProvider):
             remote_user,
             available_users,
             cast(IPAddress, context.get("conn_ip_address")),
+            self.config[CONF_ALLOW_BYPASS_LOGIN],
         )
 
     async def async_user_meta_for_credentials(
@@ -119,33 +122,45 @@ class HeaderLoginFlow(LoginFlow):
         remote_user: str,
         available_users: List[User],
         ip_address: IPAddress,
+        allow_bypass_login: bool,
     ) -> None:
         """Initialize the login flow."""
         super().__init__(auth_provider)
         self._available_users = available_users
         self._remote_user = remote_user
         self._ip_address = ip_address
+        self._allow_bypass_login = allow_bypass_login
 
-    async def async_step_init(
-        self, user_input: Optional[Dict[str, str]] = None
-    ) -> Dict[str, Any]:
+    async def async_step_init(self, user_input=None) -> Dict[str, Any]:
         """Handle the step of the form."""
-        try:
-            cast(HeaderAuthProvider, self._auth_provider).async_validate_access(
-                self._ip_address
-            )
 
-        except InvalidAuthError as exc:
-            _LOGGER.debug("invalid auth", exc_info=exc)
+        if user_input is not None or self._allow_bypass_login:
+            try:
+                _LOGGER.debug("Validating access for IP: %s", self._ip_address)
+                cast(HeaderAuthProvider, self._auth_provider).async_validate_access(
+                    self._ip_address
+                )
+            except InvalidAuthError as exc:
+                _LOGGER.debug("Invalid auth: %s", exc)
+                return self.async_abort(reason="not_allowed")
+            
+            for user in self._available_users:
+                _LOGGER.debug("Checking user: %s", user.name)
+                for cred in user.credentials:
+                    if "username" in cred.data:
+                        _LOGGER.debug("Found username in credentials: %s", cred.data["username"])
+                        if cred.data["username"] == self._remote_user:
+                            _LOGGER.debug("Username match found, finishing login flow")
+                            return await self.async_finish({"user": user.id})
+                if user.name == self._remote_user:
+                    _LOGGER.debug("User name match found, finishing login flow")
+                    return await self.async_finish({"user": user.id})
+
+            _LOGGER.debug("No matching user found")
             return self.async_abort(reason="not_allowed")
-
-        for user in self._available_users:
-            for cred in user.credentials:
-                if "username" in cred.data:
-                    if cred.data["username"] == self._remote_user:
-                        return await self.async_finish({"user": user.id})
-            if user.name == self._remote_user:
-                return await self.async_finish({"user": user.id})
-
-        _LOGGER.debug("no matching user found")
-        return self.async_abort(reason="not_allowed")
+        
+        _LOGGER.debug("Showing login form with remote_user: %s", self._remote_user)
+        return self.async_show_form(
+            step_id="init",
+            data_schema=None,
+        )
