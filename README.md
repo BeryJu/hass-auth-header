@@ -9,31 +9,33 @@ checked against usernames AND full names. Users have to be created in Home Assis
 
 ## Installation
 
-Add this repository to [HACS](https://hacs.xyz/).
+1. Add this repository to [HACS](https://hacs.xyz/).
 
-Update your configuration.yaml file with
+   [![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=BeryJu&repository=hass-auth-header&category=integration)
 
-```yaml
-http:
-    use_x_forwarded_for: true
-    trusted_proxies:
-        - 1.2.3.4/32 # This needs to be set to the IP of your reverse proxy
-auth_header:
-    # Optionally set this if you're not using authentik proxy or oauth2_proxy
-    # username_header: X-Forwarded-Preferred-Username
-    # Optionally set this if you don't want to bypass the login prompt
-    # allow_bypass_login: false
-    # Optionally enable debug mode to see the headers Home-Assistant gets
-    # debug: false
-# Optionally, if something is not working right, add this block below to get more information
-logger:
-    default: info
-    logs:
-        custom_components.auth_header: debug
-```
 
-Afterwards, restart Home Assistant.
-
+2. Update your configuration.yaml file with
+    
+    ```yaml
+    http:
+        use_x_forwarded_for: true
+        trusted_proxies:
+            - 1.2.3.4/32 # This needs to be set to the IP of your reverse proxy
+    auth_header:
+        # Optionally set this if you're not using authentik proxy or oauth2_proxy
+        # username_header: X-Forwarded-Preferred-Username
+        # Optionally set this if you don't want to bypass the login prompt
+        # allow_bypass_login: false
+        # Optionally enable debug mode to see the headers Home-Assistant gets
+        # debug: false
+    # Optionally, if something is not working right, add this block below to get more information
+    logger:
+        default: info
+        logs:
+            custom_components.auth_header: debug
+    ```
+3. Afterwards, restart Home Assistant.
+    
 ![](./.github/demo.gif)
 
 ## CSRF Errors when used with oauth2_proxy or authentik
