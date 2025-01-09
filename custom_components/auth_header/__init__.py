@@ -11,6 +11,7 @@ from homeassistant import data_entry_flow
 from homeassistant.components.auth import DOMAIN as AUTH_DOMAIN
 from homeassistant.components.auth import indieauth
 from homeassistant.components.auth.login_flow import LoginFlowIndexView
+from homeassistant.components.http import StaticPathConfig
 from homeassistant.components.http.ban import log_invalid_auth
 from homeassistant.components.http.data_validator import RequestDataValidator
 from homeassistant.core import HomeAssistant
@@ -66,10 +67,15 @@ async def async_setup(hass: HomeAssistant, config):
     )
 
     # Load script to store tokens in local storage, else we'll re-auth on every browser refresh.
-    hass.http.register_static_path(
-        "/auth_header/store-token.js",
-        os.path.join(os.path.dirname(__file__), 'store-token.js'),
-    )
+    await hass.http.async_register_static_paths(
+        [StaticPathConfig(
+            "/auth_header/store-token.js", 
+            os.path.join(os.path.dirname(__file__), 'store-token.js'), 
+            True
+            )
+        ]
+    ) 
+
     add_extra_js_url(hass, '/auth_header/store-token.js')
 
     # Inject Auth-Header provider.
