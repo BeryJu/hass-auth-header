@@ -8,8 +8,8 @@ license = "GPL"
 [tool.poetry.dependencies]
 python = "^3.10"
 
-[tool.poetry.dev-dependencies]
-homeassistant = "^2023.7.3"
+[tool.poetry.group.dev.dependencies]
+homeassistant = "*"
 pylint = "*"
 black = "*"
 isort = "*"
