@@ -24,6 +24,8 @@ checked against usernames AND full names. Users have to be created in Home Assis
     auth_header:
         # Optionally set this if you're not using authentik proxy or oauth2_proxy
         # username_header: X-Forwarded-Preferred-Username
+        # Optionally set this if you want to enable Single Logout
+        # single_logout_url: https://your.homeassistant.instance/oauth2/sign_out?rd=https%3A%2F%2Fyour.idp.com%2Foauth2%2Flogout
         # Optionally set this if you don't want to bypass the login prompt
         # allow_bypass_login: false
         # Optionally enable debug mode to see the headers Home-Assistant gets
@@ -54,6 +56,22 @@ On boot, two main things are done when the integration is enabled:
 
     This ensures that Header auth is tried first, and if it fails the user can still use username/password.
 
+3. If the single logout URL is available, we patch `_handleLogout` as soon as the home-assistant element is available
+
+    This redirects the user to the configured SLO url after the stock logic to revoke the access token is executed
+
+## Single Logout Support
+
+The component can patch the stock log out handler to clear the authentication proxy's session and log you out of your IDP if you specify a `single_logout_url`. This is usually a call to your authentication proxy (such as oauth2-proxy) with a rd parameter to redirect the user to your IDP's logout endpoint after. The IDP's logout endpoint needs to be URL-encoded in the configuration. 
+
+```
+https://your.homeassistant.instance/oauth2/sign_out?rd=https%3A%2F%2Fyour.idp.com%2Foauth2%2Flogout
+
+https://your.homeassistant.instance/oauth2/sign_out?rd= > your oauth proxy's SLO endpoint
+https%3A%2F%2Fyour.idp.com%2Foauth2%2Flogout > your IDP's SLO endpoint URL-encoded
+```
+
+You can also configure a front-channel logout URL in your IDP to call the same endpoint to clear the proxy's session however, this does not revoke your currently logged in access token.
 
 ## Help! Everything is broken!
 
