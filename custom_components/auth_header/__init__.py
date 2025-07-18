@@ -11,7 +11,7 @@ from homeassistant import data_entry_flow
 from homeassistant.components.auth import DOMAIN as AUTH_DOMAIN
 from homeassistant.components.auth import indieauth
 from homeassistant.components.auth.login_flow import LoginFlowIndexView
-from homeassistant.components.http import StaticPathConfig
+from homeassistant.components.http import StaticPathConfig, HomeAssistantView
 from homeassistant.components.http.ban import log_invalid_auth
 from homeassistant.components.http.data_validator import RequestDataValidator
 from homeassistant.core import HomeAssistant
@@ -24,6 +24,7 @@ if TYPE_CHECKING:
     from aiohttp.web_urldispatcher import UrlDispatcher, AbstractResource
 
 DOMAIN = "auth_header"
+CONF_SINGLE_LOGOUT_URL = "single_logout_url"
 _LOGGER = logging.getLogger(__name__)
 CONFIG_SCHEMA = vol.Schema(
     {
@@ -32,6 +33,7 @@ CONFIG_SCHEMA = vol.Schema(
                 vol.Optional("username_header", default="X-Forwarded-Preferred-Username"): cv.string,
                 vol.Optional("allow_bypass_login", default=True): cv.boolean,
                 vol.Optional("debug", default=False): cv.boolean,
+                vol.Optional(CONF_SINGLE_LOGOUT_URL): cv.url,
             }
         )
     },
@@ -41,6 +43,9 @@ CONFIG_SCHEMA = vol.Schema(
 
 async def async_setup(hass: HomeAssistant, config):
     """Register custom view which includes request in context"""
+    if DOMAIN not in hass.data:
+        hass.data[DOMAIN] = {}
+    hass.data[DOMAIN][CONF_SINGLE_LOGOUT_URL] = config[DOMAIN].get(CONF_SINGLE_LOGOUT_URL)
     # Because we start after auth, we have access to store_result
     store_result = hass.data[AUTH_DOMAIN]
     router: "FastUrlDispatcher" | "UrlDispatcher" = hass.http.app.router
@@ -68,15 +73,22 @@ async def async_setup(hass: HomeAssistant, config):
 
     # Load script to store tokens in local storage, else we'll re-auth on every browser refresh.
     await hass.http.async_register_static_paths(
-        [StaticPathConfig(
-            "/auth_header/store-token.js", 
-            os.path.join(os.path.dirname(__file__), 'store-token.js'), 
-            True
+        [
+            StaticPathConfig(
+                "/auth_header/store-token.js",
+                os.path.join(os.path.dirname(__file__), "store-token.js"),
+                True,
+            ),
+            StaticPathConfig(
+                "/auth_header/logout-slo.js",
+                os.path.join(os.path.dirname(__file__), "logout-slo.js"),
+                True,
             )
         ]
-    ) 
+    )
 
     add_extra_js_url(hass, '/auth_header/store-token.js')
+    add_extra_js_url(hass, '/auth_header/logout-slo.js')
 
     # Inject Auth-Header provider.
     providers = OrderedDict()
@@ -89,6 +101,7 @@ async def async_setup(hass: HomeAssistant, config):
     providers.update(hass.auth._providers)
     hass.auth._providers = providers
     _LOGGER.debug("Injected auth_header provider")
+    hass.http.register_view(SLOUrlView())
     return True
 
 
@@ -156,3 +169,12 @@ class RequestLoginFlowIndexView(LoginFlowIndexView):
             )
 
         return await self._async_flow_result_to_response(request, client_id, result)
+
+class SLOUrlView(HomeAssistantView):
+    url = "/api/auth_header/slo_url"
+    name = "auth_header:slo_url"
+    requires_auth = False
+
+    async def get(self, request: Request) -> Response:
+        slo = request.app["hass"].data[DOMAIN].get(CONF_SINGLE_LOGOUT_URL, "")
+        return Response(text=slo, content_type="text/plain")
