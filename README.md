@@ -1,3 +1,12 @@
+# ARCHIVED
+
+There are now functioning OIDC plugins for HASS and there will be no more future development on this plugin:
+
+- https://github.com/cavefire/hass-openid
+- https://github.com/christiaangoossens/hass-oidc-auth
+
+---
+
 # Header Auth for Home Assistant
 
 This custom component allows you to delegate authentication to a reverse proxy.
